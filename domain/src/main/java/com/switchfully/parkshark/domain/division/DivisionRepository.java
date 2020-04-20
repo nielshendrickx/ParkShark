@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DivisionRepository extends CrudRepository<Division,Integer> {
 
-    Division save(Division division);
-
 }

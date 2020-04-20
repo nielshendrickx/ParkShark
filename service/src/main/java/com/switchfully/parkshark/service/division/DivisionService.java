@@ -17,8 +17,6 @@ public class DivisionService {
 
 
     public DivisionDTO saveDivision(CreateDivisionDTO createDivisionDTO) {
-        Division division = divisionRepository.save(DivisionMapper.toDivision(createDivisionDTO));
-        DivisionDTO divisionDTO = DivisionMapper.toDto(division);
-        return divisionDTO;
+        return DivisionMapper.toDto(divisionRepository.save(DivisionMapper.toDivision(createDivisionDTO)));
     }
 }
