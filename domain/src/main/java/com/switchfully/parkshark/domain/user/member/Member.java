@@ -1,24 +1,25 @@
 package com.switchfully.parkshark.domain.user.member;
 
 import com.switchfully.parkshark.domain.user.Person;
+import com.switchfully.parkshark.domain.user.Role;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table (name = "member")
+@DiscriminatorValue(value = Role.Values.MEMBER)
 public class Member extends Person {
 
     @Embedded
     private LicensePlate licensePlate;
 
-    @Column (name = "registrationDate" )
+    @Column(name = "registrationDate")
     private LocalDate registrationDate = LocalDate.now();
 
     @Embedded
     private MembershipLevel membershipLevel;
 
-    @Column (name = "password")
+    @Column(name = "password")
     private String password;
 
     public Member() {

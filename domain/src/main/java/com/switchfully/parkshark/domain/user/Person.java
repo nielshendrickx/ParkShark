@@ -5,7 +5,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "person")
-public class Person {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "role", discriminatorType = DiscriminatorType.STRING)
+public abstract class Person {
 
     @Id
     @Column(name = "id")
@@ -17,24 +19,18 @@ public class Person {
     @Column(name = "lastName")
     private String lastName;
 
-    @Column (name= "mobilePhoneNumber")
+    @Column(name = "mobilePhoneNumber")
     private String mobilePhoneNumber;
 
-    @Column (name= "regularPhoneNumber")
+    @Column(name = "regularPhoneNumber")
     private String regularPhoneNumber;
 
-    @Column (name = "email")
+    @Column(name = "email")
     private String email;
 
     @ManyToOne
-    @JoinColumn (name = "addressId")
+    @JoinColumn(name = "addressId")
     private Address addressId;
-
-    @Column (name = "role")
-    private Role role;
-
-    public Person() {
-    }
 
     public String getFirstName() {
         return firstName;
@@ -58,9 +54,5 @@ public class Person {
 
     public Address getAddressId() {
         return addressId;
-    }
-
-    public Role getRole() {
-        return role;
     }
 }
