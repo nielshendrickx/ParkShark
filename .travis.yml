@@ -9,7 +9,7 @@ addons:
   sonarcloud:
     organization: "nielshendrickx"
     token:
-      secure: "SECRET_TOKEN"
+      secure: "V8KIn3Rp1V1fEHyqD2fq9RwCUkeEBpHV4P1MHxIcbI3lRGB5WrqLn+MSjJkDaBAIQdWgvU3tFz68PBuFx/bmh3T+nzWL20NIwbjLEudUmdiRu2wAdvGnEg5VbuympPvyttT4Yvh1TrXh9dD8cumlIWQqYMLh+rVcdYpZA1o02zmIgeFYsmc2HHeVdndeCflF29IrV2jWuunF2z+W19QxW0eLWLPnI7XSMWAiD8xjCtrWXFsAIpUUzYuvyUZfQrw9JhFgvE92gOiNcnPZ9dibhyUlzWkeAM6t3xP1B0kmqWTQ1kPImrZTfdrkFsQTjrGu0z7l4QpzHF/QeTB55y3TLfjlKj1JV2RIrxQw2PIuomEhP4atNHDSi4SlXXHoZqolpiD+Mwq9S3qOH8jP6VdK7l0VhjsiPzMy6eLdRgK59DynkR2QZK0hqU1siUvpE84NfaDpRX1WQ2Nz6Kc8QiWbb82S4LOv2iPYiImn/yi4ZnyB9FwG1BJDQK4L4WtORUIW7zTO9UqjCLCOavkJRx53ma3ZrFNvaop4Tov6CI3jHyQ8PsZeQT1+XAJ9PF9DRbaM4vfeKbjDTt7RtXqSHaTdXylj00BeSGhl/pzkTyqhE5y7UTGDSfqm1PBFcYbdKnnW9SHvZaRdDQNv8/yRP7doSwi32Fx/VMVtmZSdcUlDoO0="
 
 before_install:
   - mvn clean
@@ -20,7 +20,7 @@ script:
   - cat $HOME/.m2/settings.xml
   # SonarCloud
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Pcoverage -Dsonar.projectKey=nielshendrickx_REPO_NAME
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Pcoverage -Dsonar.projectKey=nielshendrickx_ParkShark
   # codecoverage
   - bash <(curl -s https://codecov.io/bash)
 
