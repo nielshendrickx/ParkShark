@@ -17,6 +17,9 @@ public class Person {
     @Column(name = "firstName")
     private String firstName;
 
+    @Column(name = "lastName")
+    private String lastName;
+
     public Person() {
     }
 }
