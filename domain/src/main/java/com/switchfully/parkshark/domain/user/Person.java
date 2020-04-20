@@ -32,6 +32,10 @@ public abstract class Person {
     @JoinColumn(name = "addressId")
     private Address addressId;
 
+    public long getId() {
+        return id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
