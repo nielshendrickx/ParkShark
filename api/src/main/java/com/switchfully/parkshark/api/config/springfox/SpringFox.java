@@ -18,7 +18,7 @@ public class SpringFox {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.switchfully.javadocjuveniles.api.endpoints"))
+                .apis(RequestHandlerSelectors.basePackage("com.switchfully.parkshark.api.endpoints"))
                 .build()
                 .apiInfo(apiDetails());
     }
@@ -26,10 +26,10 @@ public class SpringFox {
     private ApiInfo apiDetails() {
         return new ApiInfo(
                 "Order API",
-                "Switchfully Order self eval Niels",
+                "Parkshark project",
                 "1.0",
                 "Free to use",
-                new springfox.documentation.service.Contact("Niels Hendrickx", "http://switchfully.com", "contact@switchfully.com"),
+                new springfox.documentation.service.Contact("Parkshark support", "http://switchfully.com", "contact@switchfully.com"),
                 "API License",
                 "www.switchfully.com",
                 Collections.emptyList()

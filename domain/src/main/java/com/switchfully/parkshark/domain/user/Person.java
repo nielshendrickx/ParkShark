@@ -1,6 +1,8 @@
 package com.switchfully.parkshark.domain.user;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -28,9 +30,20 @@ public abstract class Person {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "addressId")
-    private Address addressId;
+    @Embedded
+    private Address address;
+
+    public Person() {
+    }
+
+    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.regularPhoneNumber = regularPhoneNumber;
+        this.email = email;
+        this.address = address;
+    }
 
     public long getId() {
         return id;
@@ -56,7 +69,9 @@ public abstract class Person {
         return email;
     }
 
-    public Address getAddressId() {
-        return addressId;
+    public Address getAddress() {
+        return address;
     }
+
+
 }

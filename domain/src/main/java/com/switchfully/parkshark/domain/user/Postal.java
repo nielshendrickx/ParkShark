@@ -1,17 +1,9 @@
 package com.switchfully.parkshark.domain.user;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity
-@Table (name = "postal")
+@Embeddable
 public class Postal {
-
-    @Id
-    @Column (name = "id")
-    private long id;
 
     @Column (name = "code")
     private String code;
