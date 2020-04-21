@@ -3,11 +3,12 @@ package com.switchfully.parkshark.service.mappers;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
 import com.switchfully.parkshark.domain.user.member.Member;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class MemberMapper {
     public MemberDto toDto (Member member) {
         return new MemberDto(
