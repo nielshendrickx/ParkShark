@@ -18,7 +18,7 @@ public class MemberMapper {
                 member.getMobilePhoneNumber(),
                 member.getRegularPhoneNumber(),
                 member.getEmail(),
-                member.getAddressId(),
+                member.getAddress(),
                 member.getLicensePlate(),
                 member.getMembershipLevel(),
                 member.getPassword(),

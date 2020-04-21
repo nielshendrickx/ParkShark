@@ -3,13 +3,8 @@ package com.switchfully.parkshark.domain.user;
 import javax.persistence.*;
 
 
-@Entity
-@Table (name = "address")
+@Embeddable
 public class Address {
-
-    @Id
-    @Column (name = "id")
-    private long id;
 
     @Column (name = "street")
     private String street;
@@ -17,8 +12,7 @@ public class Address {
     @Column (name = "number")
     private String number;
 
-    @OneToOne
-    @JoinColumn (name = "postalId")
+    @Embedded
     private Postal postal;
 
     public Address() {

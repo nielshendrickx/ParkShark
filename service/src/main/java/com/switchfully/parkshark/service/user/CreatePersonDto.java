@@ -1,5 +1,7 @@
 package com.switchfully.parkshark.service.user;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.Address;
 
 public class CreatePersonDto {
@@ -10,7 +12,8 @@ public class CreatePersonDto {
     private String email;
     private Address address;
 
-    public CreatePersonDto(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address) {
+    @JsonCreator
+    public CreatePersonDto(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mobilePhoneNumber = mobilePhoneNumber;
