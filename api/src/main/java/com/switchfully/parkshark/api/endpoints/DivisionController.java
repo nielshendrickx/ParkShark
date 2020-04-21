@@ -25,20 +25,20 @@ public class DivisionController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public DivisionDTO createDivision(@Valid @RequestBody CreateDivisionDTO createDivisionDTO){
+    public DivisionDTO createDivision(@Valid @RequestBody CreateDivisionDTO createDivisionDTO) {
         return divisionService.saveDivision(createDivisionDTO);
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public List<DivisionDTO> getAllDivisions(){
+    public List<DivisionDTO> getAllDivisions() {
         return divisionService.getAllDivisions();
     }
 
-//    @PostMapping(path = "/{id}")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public void createSubDivision(@PathVariable int id, ){
-//        divisionService.createSubDivision();
-//    }
+    @PostMapping(path = "/{primaryKeyId}/{parentDivisionKey}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createSubDivision(@PathVariable int primaryKeyId,@PathVariable int parentDivisionKey) {
+        divisionService.createSubDivision(parentDivisionKey,primaryKeyId);
+    }
 
 }
