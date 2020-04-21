@@ -13,4 +13,9 @@ public class Postal {
 
     public Postal() {
     }
+
+    public Postal(String code, String city) {
+        this.code = code;
+        this.city = city;
+    }
 }

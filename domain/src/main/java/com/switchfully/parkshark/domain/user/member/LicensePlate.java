@@ -14,4 +14,9 @@ public class LicensePlate {
 
     public LicensePlate() {
     }
+
+    public LicensePlate(String licensePlateNumber, String countryCode) {
+        this.licensePlateNumber = licensePlateNumber;
+        this.countryCode = countryCode;
+    }
 }
