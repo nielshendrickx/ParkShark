@@ -8,7 +8,7 @@ class ExceptionTest {
 
     @Test
     void emailException_returnsCorrectMessage() {
-        assertEquals("The provided email: test is not valid", new EmailNotValidException("test").getMessage());
+        assertEquals("The provided email 'test' is not valid.", new EmailNotValidException("test").getMessage());
     }
 
     @Test
