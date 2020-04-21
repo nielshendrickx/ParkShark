@@ -22,6 +22,6 @@ public class DivisionMapper {
 
     public static List<DivisionDTO> toDtoList(Iterable<Division> divisions){
         List<Division> list = Lists.newArrayList(divisions);
-        return list.stream().map(division -> toDto(division)).collect(Collectors.toList());
+        return list.stream().map(DivisionMapper::toDto).collect(Collectors.toList());
     }
 }

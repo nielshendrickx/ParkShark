@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 public class DivisionService {
 
-    private DivisionRepository divisionRepository;
+    private final DivisionRepository divisionRepository;
 
     @Autowired
     public DivisionService(DivisionRepository divisionRepository) {
@@ -34,7 +34,7 @@ public class DivisionService {
     }
 
 
-    public void createSubDivision(int divisionId, int subId) {
+    public void assignSubDivision(int divisionId, int subId) {
         assertThatDivisionExists(divisionId);
         assertThatDivisionExists(subId);
         Division parentDivision = divisionRepository.findById(divisionId).get();
@@ -44,7 +44,7 @@ public class DivisionService {
 
     private void assertThatDivisionExists(int divisionId) {
         if(!divisionRepository.findById(divisionId).isPresent()){
-            throw new DivisionDoesNotExistException(String.format("Division with id: %s does not exist", divisionId));
+            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
         }
     }
 }
