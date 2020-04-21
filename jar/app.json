@@ -1,5 +1,0 @@
-{
-  "name": "Parkshark database",
-  "description": "The parkshark database, ready for deployment on Heroku",
-  "addons": [ "heroku-postgresql" ]
-}
