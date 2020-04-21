@@ -1,6 +1,7 @@
 package com.switchfully.parkshark.api.exceptions;
 
 
+import com.switchfully.parkshark.api.endpoints.DivisionController;
 import com.switchfully.parkshark.api.endpoints.MemberController;
 import com.switchfully.parkshark.domain.exceptions.EmailNotValidException;
 import org.slf4j.Logger;
@@ -26,17 +27,17 @@ import java.util.UUID;
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     private final Logger loggerMember = LoggerFactory.getLogger(MemberController.class);
+    private final Logger loggerDivision = LoggerFactory.getLogger(DivisionController.class);
 
     @ExceptionHandler(EmailNotValidException.class)
     protected void emailNotValidException(EmailNotValidException ex, HttpServletResponse response) throws IOException {
         loggerMember.error("Email is not valid!", ex);
         response.sendError(HttpStatus.BAD_REQUEST.value(), ex.getMessage());
     }
-    private final Logger LOGGER = LoggerFactory.getLogger(ControllerExceptionHandler.class);
 
     @ExceptionHandler(DivisionDoesNotExistException.class)
     protected void userAlreadyExistsException(DivisionDoesNotExistException exception, HttpServletResponse response) throws IOException {
-        LOGGER.warn("Log Id: " + UUID.randomUUID() + " - " + exception.getMessage(), exception);
+        loggerDivision.warn("Log Id: " + UUID.randomUUID() + " - " + exception.getMessage(), exception);
         response.sendError(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
     }
 
