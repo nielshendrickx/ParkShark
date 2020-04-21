@@ -3,7 +3,6 @@ package com.switchfully.parkshark.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.Objects;
 
