@@ -1,6 +1,7 @@
 package com.switchfully.parkshark.domain.exceptions;
 
-public class EmailNotValidException extends Throwable {
-    public EmailNotValidException(String email) {super("The provided email '"+email+"' is not valid.");
+public class EmailNotValidException extends RuntimeException {
+    public EmailNotValidException(String email) {
+        super("The provided email '" + email + "' is not valid.");
     }
 }
