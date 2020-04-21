@@ -16,4 +16,8 @@ class ExceptionTest {
         assertEquals("Could not find the user.", new MemberNotFoundException().getMessage());
     }
 
+    @Test
+    void divisionDoesNotExistException_returnCorrectMessage() {
+        assertEquals("Division with id: 1 does not exist", new DivisionDoesNotExistException("1").getMessage());
+    }
 }
