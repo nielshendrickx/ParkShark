@@ -3,6 +3,7 @@ package com.switchfully.parkshark.api.endpoints;
 import com.switchfully.parkshark.service.division.CreateDivisionDTO;
 import com.switchfully.parkshark.service.division.DivisionDTO;
 import com.switchfully.parkshark.service.services.DivisionService;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,10 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/divisions")
+@RequestMapping(path = DivisionController.DIVISION_RESOURCE_PATH)
 public class DivisionController {
 
+    public static final String DIVISION_RESOURCE_PATH = "/divisions";
     private final Logger loggerDivision = LoggerFactory.getLogger(DivisionController.class);
     private final DivisionService divisionService;
 
@@ -27,6 +29,7 @@ public class DivisionController {
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Create a division", notes = "A manager can create a division", response = DivisionDTO.class)
     @ResponseStatus(HttpStatus.CREATED)
     public DivisionDTO createDivision(@Valid @RequestBody CreateDivisionDTO createDivisionDTO) {
         loggerDivision.info("Creating a new division");
@@ -34,6 +37,7 @@ public class DivisionController {
     }
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get all divisions", notes = "A list of all the registered division will be returned", response = DivisionDTO.class)
     @ResponseStatus(HttpStatus.OK)
     public List<DivisionDTO> getAllDivisions() {
         loggerDivision.info("Returning all divisions");
@@ -41,10 +45,11 @@ public class DivisionController {
     }
 
     @PostMapping(path = "/{primaryKeyId}/{parentDivisionKey}")
+    @ApiOperation(value = "Assign a subdivision to a division", notes = "A division is a subdivision when it refers to a other division")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createSubDivision(@PathVariable int primaryKeyId,@PathVariable int parentDivisionKey) {
+    public void assignSubDivision(@PathVariable int primaryKeyId, @PathVariable int parentDivisionKey) {
         loggerDivision.info("Assign subdivision");
-        divisionService.createSubDivision(parentDivisionKey,primaryKeyId);
+        divisionService.assignSubDivision(parentDivisionKey,primaryKeyId);
     }
 
 }

@@ -48,14 +48,14 @@ class DivisionServiceTest {
         Division parentDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
         Division subDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
         // When
-        divisionService.createSubDivision(parentDivision.getId(), subDivision.getId());
+        divisionService.assignSubDivision(parentDivision.getId(), subDivision.getId());
         // Then
         Assertions.assertThat(divisionRepository.findById(subDivision.getId()).get().getParentDivision()).isEqualTo(parentDivision);
     }
 
     @Test
     void createSubDivision_givenWrongParentId_thenThrowDivisionDoesNotExistException() {
-        Assertions.assertThatThrownBy(() -> divisionService.createSubDivision(1, 2))
+        Assertions.assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2))
                 .isInstanceOf(DivisionDoesNotExistException.class)
                 .hasMessage("Division with id: 1 does not exist");
     }
@@ -63,7 +63,7 @@ class DivisionServiceTest {
     @Test
     void createSubDivision_givenWrongSubId_thenThrowDivisionDoesNotExistException() {
         Division parentDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
-        Assertions.assertThatThrownBy(() -> divisionService.createSubDivision(parentDivision.getId(), 2))
+        Assertions.assertThatThrownBy(() -> divisionService.assignSubDivision(parentDivision.getId(), 2))
                 .isInstanceOf(DivisionDoesNotExistException.class)
                 .hasMessage("Division with id: 2 does not exist");
     }

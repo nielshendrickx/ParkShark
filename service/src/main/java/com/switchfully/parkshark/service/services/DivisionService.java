@@ -34,7 +34,7 @@ public class DivisionService {
     }
 
 
-    public void createSubDivision(int divisionId, int subId) {
+    public void assignSubDivision(int divisionId, int subId) {
         assertThatDivisionExists(divisionId);
         assertThatDivisionExists(subId);
         Division parentDivision = divisionRepository.findById(divisionId).get();
