@@ -4,6 +4,8 @@ import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.member.LicensePlate;
 import com.switchfully.parkshark.domain.user.member.MembershipLevel;
 
+import java.time.LocalDate;
+
 public class CreateMemberDto extends CreatePersonDto {
     private LicensePlate licensePlate;
     private MembershipLevel membershipLevel;

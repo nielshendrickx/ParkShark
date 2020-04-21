@@ -32,6 +32,18 @@ public abstract class Person {
     @JoinColumn(name = "addressId")
     private Address addressId;
 
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.regularPhoneNumber = regularPhoneNumber;
+        this.email = email;
+        this.addressId = address;
+    }
+
     public long getId() {
         return id;
     }
@@ -59,4 +71,6 @@ public abstract class Person {
     public Address getAddressId() {
         return addressId;
     }
+
+
 }
