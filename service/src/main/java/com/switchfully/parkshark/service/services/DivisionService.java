@@ -44,7 +44,7 @@ public class DivisionService {
 
     private void assertThatDivisionExists(int divisionId) {
         if(!divisionRepository.findById(divisionId).isPresent()){
-            throw new DivisionDoesNotExistException(String.format("Division with id: %s does not exist", divisionId));
+            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
         }
     }
 }
