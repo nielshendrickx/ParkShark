@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.Collection;
 
+import static com.switchfully.parkshark.api.validation.Validation.isValidEmailAddress;
+
 @RestController
 @RequestMapping(path = MemberController.MEMBER_RESOURCE_PATH)
 public class MemberController {
@@ -26,7 +28,7 @@ public class MemberController {
     }
 
     @GetMapping(produces = "application/json")
-    @ApiOperation(value = "Get all registered members", notes = "A list of all the registered members will be returned" , response = MemberDto.class)
+    @ApiOperation(value = "Get all registered members", notes = "A list of all the registered members will be returned", response = MemberDto.class)
     @ResponseStatus(HttpStatus.OK)
     public Collection<MemberDto> getAllMembers() {
         loggerMember.info("Returning all members");
@@ -37,8 +39,13 @@ public class MemberController {
     @ApiOperation(value = "Register as a member", notes = "Everyone can freely join Digibooky!" , response = MemberDto.class)
     @ResponseStatus(HttpStatus.CREATED)
     public MemberDto register(@RequestBody CreateMemberDto newMember) throws IOException {
-        //validateNewMember(newMember); TODO
+        validateNewMember(newMember); 
         loggerMember.info("Creating a new member");
         return memberService.register(newMember);
+    }
+
+    private void validateNewMember(CreateMemberDto newMember) throws IOException {
+        isValidEmailAddress(newMember.getEmail());
+        memberService.isEmailAvailable(newMember.getEmail());
     }
 }

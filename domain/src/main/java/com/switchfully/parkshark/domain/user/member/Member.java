@@ -35,7 +35,7 @@ public class Member extends Person {
     }
 
     public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password, LocalDate registrationDate) {
-        super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
+        super(firstName, lastName, mobilePhoneNumber, regularPhoneNumber, email, address);
         this.licensePlate = licensePlate;
         this.membershipLevel = membershipLevel;
         this.password = password;

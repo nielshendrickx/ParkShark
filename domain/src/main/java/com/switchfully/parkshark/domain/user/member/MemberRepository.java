@@ -8,4 +8,6 @@ public interface MemberRepository extends CrudRepository<Member, Long> {
     List<Member> findAll();
 
     Member save(Member member);
+
+    Member findByEmail(String email);
 }
