@@ -16,7 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(path = "/divisions")
 public class DivisionController {
 
-    private DivisionService divisionService;
+    private final DivisionService divisionService;
 
     @Autowired
     public DivisionController(DivisionService divisionService) {

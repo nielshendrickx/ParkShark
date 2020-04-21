@@ -16,7 +16,7 @@ import java.util.List;
 @Transactional
 public class DivisionService {
 
-    private DivisionRepository divisionRepository;
+    private final DivisionRepository divisionRepository;
 
     @Autowired
     public DivisionService(DivisionRepository divisionRepository) {
