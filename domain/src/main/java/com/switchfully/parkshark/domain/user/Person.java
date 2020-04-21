@@ -3,6 +3,7 @@ package com.switchfully.parkshark.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.annotation.Generated;
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ import javax.persistence.*;
 public abstract class Person {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
 

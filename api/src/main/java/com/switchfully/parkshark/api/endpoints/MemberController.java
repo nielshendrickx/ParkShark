@@ -39,7 +39,7 @@ public class MemberController {
     @ApiOperation(value = "Register as a member", notes = "Everyone can freely join Digibooky!" , response = MemberDto.class)
     @ResponseStatus(HttpStatus.CREATED)
     public MemberDto register(@RequestBody CreateMemberDto newMember) throws IOException {
-        //validateNewMember(newMember); TODO
+        validateNewMember(newMember); 
         loggerMember.info("Creating a new member");
         return memberService.register(newMember);
     }
