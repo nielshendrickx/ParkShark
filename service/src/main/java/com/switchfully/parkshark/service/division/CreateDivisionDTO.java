@@ -1,7 +1,10 @@
 package com.switchfully.parkshark.service.division;
 
+import javax.validation.constraints.NotEmpty;
+
 public class CreateDivisionDTO {
 
+    @NotEmpty
     private String name;
 
     private String originalName;
@@ -12,6 +15,9 @@ public class CreateDivisionDTO {
         this.name = name;
         this.originalName = originalName;
         this.director = director;
+    }
+
+    public CreateDivisionDTO() {
     }
 
     public String getName() {

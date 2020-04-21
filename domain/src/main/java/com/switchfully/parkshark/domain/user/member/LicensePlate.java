@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 public class LicensePlate {
 
     @Column (name = "licensePlateNumber")
-    private String licensePlate;
+    private String licensePlateNumber;
 
     @Column (name = "countryCode")
     private String countryCode;

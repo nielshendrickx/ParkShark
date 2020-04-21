@@ -35,8 +35,8 @@ public class MemberController {
         return memberService.getAllMembers();
     }
 
-    @PostMapping(path = "/register", consumes = "application/json", produces = "application/json")
-    @ApiOperation(value = "Register as a member", notes = "Everyone can freely join Digibooky!", response = MemberDto.class)
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    @ApiOperation(value = "Register as a member", notes = "Everyone can freely join Digibooky!" , response = MemberDto.class)
     @ResponseStatus(HttpStatus.CREATED)
     public MemberDto register(@RequestBody CreateMemberDto newMember) throws IOException {
         //validateNewMember(newMember); TODO
