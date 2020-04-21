@@ -17,4 +17,10 @@ public class Address {
 
     public Address() {
     }
+
+    public Address(String street, String number, Postal postal) {
+        this.street = street;
+        this.number = number;
+        this.postal = postal;
+    }
 }

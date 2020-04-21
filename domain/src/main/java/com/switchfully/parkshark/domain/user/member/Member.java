@@ -57,4 +57,6 @@ public class Member extends Person {
     public String getPassword() {
         return password;
     }
+
+
 }
