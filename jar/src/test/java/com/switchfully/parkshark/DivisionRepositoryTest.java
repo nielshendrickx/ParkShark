@@ -4,7 +4,6 @@ package com.switchfully.parkshark;
 import com.switchfully.parkshark.domain.division.Division;
 import com.switchfully.parkshark.domain.division.DivisionRepository;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -26,7 +25,6 @@ class DivisionRepositoryTest {
         Division division = new Division("bla", "bla", "bla");
         Division actualValue = divisionRepository.save(division);
         assertThat(actualValue).isEqualTo(division);
-        assertThat(divisionRepository.findAll()).containsExactly(division);
 //        assertThat(divisionRepository.count()).isEqualTo(1);
     }
 
@@ -59,10 +57,5 @@ class DivisionRepositoryTest {
         divisionRepository.saveAll(divisionList);
         Division toCheck = divisionRepository.findById(division3.getId());
         Assertions.assertThat(toCheck).isNotNull();
-    }
-
-    @AfterEach
-    void breakDown(){
-        divisionRepository.deleteAll();
     }
 }

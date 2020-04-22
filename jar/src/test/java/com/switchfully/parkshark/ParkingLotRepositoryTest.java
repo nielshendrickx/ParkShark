@@ -9,10 +9,7 @@ import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.Postal;
 import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
 import com.switchfully.parkshark.domain.user.contactperson.ContactpersonRepository;
-import com.switchfully.parkshark.domain.user.member.MembershipLevel;
 import org.assertj.core.api.Assertions;
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -49,8 +46,4 @@ public class ParkingLotRepositoryTest {
         Assertions.assertThat(parkingLotRepository.count()).isEqualTo(3);
     }
 
-    @AfterEach
-    void breakDown(){
-        divisionRepository.deleteAll();
-    }
 }
