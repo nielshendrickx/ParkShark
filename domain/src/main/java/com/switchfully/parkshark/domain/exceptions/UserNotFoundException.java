@@ -1,7 +1,7 @@
 package com.switchfully.parkshark.domain.exceptions;
 
-public class MemberNotFoundException extends RuntimeException {
-    public MemberNotFoundException() {
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException() {
         super("Could not find the user.");
     }
 }
