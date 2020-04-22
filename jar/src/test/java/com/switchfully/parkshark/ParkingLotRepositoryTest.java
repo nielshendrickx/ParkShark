@@ -36,7 +36,7 @@ public class ParkingLotRepositoryTest {
         Division division = new Division("DivisionName", "Division original name", "Director");
         divisionRepository.save(division);
     }
-    
+
     @Test
     void saveThreeParkingLots() {
         Postal postal = new Postal("1000", "Brussel");
