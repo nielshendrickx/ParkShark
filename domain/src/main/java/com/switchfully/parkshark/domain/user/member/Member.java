@@ -19,7 +19,8 @@ public class Member extends Person {
     @Column(name = "registrationDate")
     private LocalDate registrationDate = LocalDate.now();
 
-    @Embedded
+    @OneToOne
+    @JoinColumn(name = "fk_membershiplevel_id")
     private MembershipLevel membershipLevel;
 
     @Column(name = "password")
@@ -31,16 +32,8 @@ public class Member extends Person {
     public Member(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("membershipLevel") MembershipLevel membershipLevel, @JsonProperty("password") String password) {
         super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
         this.licensePlate = licensePlate;
-        this.membershipLevel = membershipLevel;
+        setMembershipLevel(membershipLevel);
         this.password = Hash.hash(password);
-    }
-
-    public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password, LocalDate registrationDate) {
-        super(firstName, lastName, mobilePhoneNumber, regularPhoneNumber, email, address);
-        this.licensePlate = licensePlate;
-        this.membershipLevel = membershipLevel;
-        this.password = password;
-        this.registrationDate = registrationDate;
     }
 
     public LicensePlate getLicensePlate() {
@@ -65,5 +58,7 @@ public class Member extends Person {
         return Role.MEMBER;
     }
 
-
+    public void setMembershipLevel(MembershipLevel membershipLevel) {
+        this.membershipLevel = membershipLevel;
+    }
 }

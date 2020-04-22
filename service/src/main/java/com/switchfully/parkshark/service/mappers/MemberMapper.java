@@ -1,8 +1,10 @@
 package com.switchfully.parkshark.service.mappers;
 
+import com.switchfully.parkshark.domain.user.member.MembershipLevelRepository;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
 import com.switchfully.parkshark.domain.user.member.Member;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -10,6 +12,14 @@ import java.util.stream.Collectors;
 
 @Component
 public class MemberMapper {
+
+    private MembershipLevelRepository membershipLevelRepository;
+
+    @Autowired
+    public MemberMapper(MembershipLevelRepository membershipLevelRepository) {
+        this.membershipLevelRepository = membershipLevelRepository;
+    }
+
     public MemberDto toDto (Member member) {
         return new MemberDto(
                 member.getId(),
@@ -34,7 +44,7 @@ public class MemberMapper {
                 createMemberDto.getEmail(),
                 createMemberDto.getAddress(),
                 createMemberDto.getLicensePlate(),
-                createMemberDto.getMembershipLevel(),
+                membershipLevelRepository.findById(createMemberDto.getMembershipLevelId()),
                 createMemberDto.getPassword());
     }
 
