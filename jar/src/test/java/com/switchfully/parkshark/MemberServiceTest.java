@@ -8,6 +8,7 @@ import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -44,8 +45,7 @@ class MemberServiceTest {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
         LicensePlate licensePlate = new LicensePlate("1-aaa-111", "BE");
-        MembershipLevel membershipLevel = new MembershipLevel("Bronze", 0.0, 0.0,4);
-        membershipLevelRepository.save(membershipLevel);
+
         Member member = new Member("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate, membershipLevelRepository.findByName("Bronze") , "password");
         memberRepository.save(member);
         Collection<MemberDto> memberDtoList = memberService.getAllMembers();
@@ -55,6 +55,16 @@ class MemberServiceTest {
     @AfterEach
     void breakDown() {
         memberRepository.deleteAll();
+    }
+
+    @BeforeEach
+    void fillDefaultMemberShips() {
+        MembershipLevel membershipLevelBronze = new MembershipLevel("Bronze", 0.0, 0.0,4);
+        membershipLevelRepository.save(membershipLevelBronze);
+        MembershipLevel membershipLevelSilver = new MembershipLevel("Silver", 10.0, 0.2,6);
+        membershipLevelRepository.save(membershipLevelSilver);
+        MembershipLevel membershipLevelGold = new MembershipLevel("Gold", 40.0, 0.3,24);
+        membershipLevelRepository.save(membershipLevelGold);
     }
 
  }
