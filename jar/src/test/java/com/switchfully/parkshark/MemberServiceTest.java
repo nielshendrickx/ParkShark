@@ -45,7 +45,6 @@ class MemberServiceTest {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
         LicensePlate licensePlate = new LicensePlate("1-aaa-111", "BE");
-
         Member member = new Member("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate, membershipLevelRepository.findByName("Bronze") , "password");
         memberRepository.save(member);
         Collection<MemberDto> memberDtoList = memberService.getAllMembers();
@@ -55,6 +54,7 @@ class MemberServiceTest {
     @AfterEach
     void breakDown() {
         memberRepository.deleteAll();
+        membershipLevelRepository.deleteAll();
     }
 
     @BeforeEach
