@@ -30,7 +30,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(DivisionDoesNotExistException.class)
-    protected void userAlreadyExistsException(DivisionDoesNotExistException exception, HttpServletResponse response) throws IOException {
+    protected void divisionDoesNotExistException(DivisionDoesNotExistException exception, HttpServletResponse response) throws IOException {
         loggerDivision.warn("Log Id: " + UUID.randomUUID() + " - " + exception.getMessage(), exception);
         response.sendError(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
     }

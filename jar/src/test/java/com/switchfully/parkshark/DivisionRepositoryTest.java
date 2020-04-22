@@ -12,6 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.*;
+
 
 @DataJpaTest
 class DivisionRepositoryTest {
@@ -23,8 +25,8 @@ class DivisionRepositoryTest {
     void saveDivision() {
         Division division = new Division("bla", "bla", "bla");
         Division actualValue = divisionRepository.save(division);
-        Assertions.assertThat(actualValue).isEqualTo(division);
-        Assertions.assertThat(divisionRepository.count()).isEqualTo(1);
+        assertThat(actualValue).isEqualTo(division);
+        assertThat(divisionRepository.count()).isEqualTo(1);
     }
 
     @Test
@@ -34,17 +36,27 @@ class DivisionRepositoryTest {
         Division division3 = new Division("bla", "bla", "bla");
         List<Division> divisionList = Arrays.asList(division, division2, division3);
         divisionRepository.saveAll(divisionList);
-        Assertions.assertThat(divisionRepository.count()).isEqualTo(3);
+        assertThat(divisionRepository.count()).isEqualTo(3);
     }
 
     @Test
-    void saveThreeDivisions_checkThatIdOfThirdIsRight() {
-        Division division = new Division("bla", "bla", "bla");
-        Division division2 = new Division("bla", "bla", "bla");
-        Division division3 = divisionRepository.save(new Division("checkThis", "bla", "bla"));
-        List<Division> divisionList = Arrays.asList(division, division2);
-        divisionRepository.saveAll(divisionList);
-        Optional<Division> toCheck = divisionRepository.findById(division3.getId());
-        Assertions.assertThat(toCheck.isPresent()).isTrue();
+    void findById() {
+        // Given
+        Division expectedDivision = divisionRepository.save(new Division());
+        // When
+        Division actualDivision = divisionRepository.findById(expectedDivision.getId());
+        // Then
+        assertThat(actualDivision).isEqualTo(expectedDivision);
     }
+
+    //    @Test
+//    void saveThreeDivisions_checkThatIdOfThirdIsRight() {
+//        Division division = new Division("bla", "bla", "bla");
+//        Division division2 = new Division("bla", "bla", "bla");
+//        Division division3 = divisionRepository.save(new Division("checkThis", "bla", "bla"));
+//        List<Division> divisionList = Arrays.asList(division, division2);
+//        divisionRepository.saveAll(divisionList);
+//        Optional<Division> toCheck = divisionRepository.findById(division3.getId());
+//        Assertions.assertThat(toCheck.isPresent()).isTrue();
+//    }
 }
