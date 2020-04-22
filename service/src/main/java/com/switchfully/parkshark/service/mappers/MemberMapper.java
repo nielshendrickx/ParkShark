@@ -2,9 +2,9 @@ package com.switchfully.parkshark.service.mappers;
 
 import com.switchfully.parkshark.domain.user.member.MembershipLevel;
 import com.switchfully.parkshark.domain.user.member.MembershipLevelRepository;
+import com.switchfully.parkshark.domain.user.member.Member;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
-import com.switchfully.parkshark.domain.user.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
