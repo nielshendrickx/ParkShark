@@ -6,11 +6,11 @@ import javax.persistence.*;
 @Embeddable
 public class Address {
 
-    @Column (name = "street")
-    private String street;
+    @Column (name = "streetName")
+    private String streetName;
 
-    @Column (name = "number")
-    private String number;
+    @Column (name = "streetNumber")
+    private String streetNumber;
 
     @Embedded
     private Postal postal;
@@ -18,9 +18,9 @@ public class Address {
     public Address() {
     }
 
-    public Address(String street, String number, Postal postal) {
-        this.street = street;
-        this.number = number;
+    public Address(String streetName, String streetNumber, Postal postal) {
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
         this.postal = postal;
     }
 }

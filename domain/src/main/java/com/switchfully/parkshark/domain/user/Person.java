@@ -24,14 +24,14 @@ public abstract class Person {
     @Column(name = "lastName")
     private String lastName;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "mobilePhoneNumber")
     private String mobilePhoneNumber;
 
     @Column(name = "regularPhoneNumber")
     private String regularPhoneNumber;
-
-    @Column(name = "email")
-    private String email;
 
     @Embedded
     private Address address;
@@ -39,12 +39,12 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address) {
+    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("address") Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.mobilePhoneNumber = mobilePhoneNumber;
         this.regularPhoneNumber = regularPhoneNumber;
-        this.email = email;
         this.address = address;
     }
 
@@ -60,16 +60,16 @@ public abstract class Person {
         return lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public String getMobilePhoneNumber() {
         return mobilePhoneNumber;
     }
 
     public String getRegularPhoneNumber() {
         return regularPhoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public Address getAddress() {

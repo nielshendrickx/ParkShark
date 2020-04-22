@@ -37,10 +37,48 @@ public class ParkingLot {
     @JoinColumn(name = "fk_division_id")
     private Division division;
 
+    public ParkingLot() {
+    }
 
+    public ParkingLot (String name, Category category, int capacity, Contactperson contactperson, Address address, double pricePerHour, Division division) {
+        this.name = name;
+        this.category = category;
+        this.capacity = capacity;
+        this.contactperson = contactperson;
+        this.address = address;
+        this.pricePerHour = pricePerHour;
+        this.division = division;
+    }
 
+    public int getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public Category getCategory() {
+        return category;
+    }
 
+    public int getCapacity() {
+        return capacity;
+    }
 
+    public Contactperson getContactperson() {
+        return contactperson;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public double getPricePerHour() {
+        return pricePerHour;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
 }
