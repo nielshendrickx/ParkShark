@@ -6,13 +6,15 @@ import com.switchfully.parkshark.domain.exceptions.DivisionDoesNotExistException
 import com.switchfully.parkshark.service.division.CreateDivisionDTO;
 import com.switchfully.parkshark.service.division.DivisionDTO;
 import com.switchfully.parkshark.service.services.DivisionService;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @SpringBootTest
 class DivisionServiceIntegrationTest {
@@ -27,9 +29,9 @@ class DivisionServiceIntegrationTest {
     void whenCreateDivisionDtoIsSaved_checkThatReturnSDivisionDto() {
         CreateDivisionDTO createDivisionDTO = new CreateDivisionDTO("bla", "balbla", "blabklaqsfdq");
         DivisionDTO divisionDto = divisionService.saveDivision(createDivisionDTO);
-        Assertions.assertThat(divisionDto.getDirector()).isEqualTo(createDivisionDTO.getDirector());
-        Assertions.assertThat(divisionDto.getName()).isEqualTo(createDivisionDTO.getName());
-        Assertions.assertThat(divisionDto.getOriginalName()).isEqualTo(createDivisionDTO.getOriginalName());
+        assertThat(divisionDto.getDirector()).isEqualTo(createDivisionDTO.getDirector());
+        assertThat(divisionDto.getName()).isEqualTo(createDivisionDTO.getName());
+        assertThat(divisionDto.getOriginalName()).isEqualTo(createDivisionDTO.getOriginalName());
     }
 
     @Test
@@ -39,7 +41,7 @@ class DivisionServiceIntegrationTest {
         // When
         List<DivisionDTO> divisionDTOS = divisionService.getAllDivisions();
         // Then
-        Assertions.assertThat(divisionDTOS).hasSize(1);
+        assertThat(divisionDTOS).hasSize(1);
     }
 
     @Test
@@ -50,12 +52,12 @@ class DivisionServiceIntegrationTest {
         // When
         divisionService.assignSubDivision(parentDivision.getId(), subDivision.getId());
         // Then
-        Assertions.assertThat(divisionRepository.findById(subDivision.getId()).get().getParentDivision()).isEqualTo(parentDivision);
+        assertThat(divisionRepository.findById(subDivision.getId()).getParentDivision()).isEqualTo(parentDivision);
     }
 
     @Test
     void createSubDivision_givenWrongParentId_thenThrowDivisionDoesNotExistException() {
-        Assertions.assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2))
+        assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2))
                 .isInstanceOf(DivisionDoesNotExistException.class)
                 .hasMessage("Division with id: 1 does not exist");
     }
@@ -63,7 +65,7 @@ class DivisionServiceIntegrationTest {
     @Test
     void createSubDivision_givenWrongSubId_thenThrowDivisionDoesNotExistException() {
         Division parentDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
-        Assertions.assertThatThrownBy(() -> divisionService.assignSubDivision(parentDivision.getId(), 2))
+        assertThatThrownBy(() -> divisionService.assignSubDivision(parentDivision.getId(), 2))
                 .isInstanceOf(DivisionDoesNotExistException.class)
                 .hasMessage("Division with id: 2 does not exist");
     }

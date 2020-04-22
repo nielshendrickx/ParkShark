@@ -37,13 +37,13 @@ public class DivisionService {
     public void assignSubDivision(int divisionId, int subId) {
         assertThatDivisionExists(divisionId);
         assertThatDivisionExists(subId);
-        Division parentDivision = divisionRepository.findById(divisionId).get();
-        Division subDivision = divisionRepository.findById(subId).get();
+        Division parentDivision = divisionRepository.findById(divisionId);
+        Division subDivision = divisionRepository.findById(subId);
         subDivision.setParentDivision(parentDivision);
     }
 
     private void assertThatDivisionExists(int divisionId) {
-        if(!divisionRepository.findById(divisionId).isPresent()){
+        if(divisionRepository.findById(divisionId) == null){
             throw new DivisionDoesNotExistException(Integer.toString(divisionId));
         }
     }

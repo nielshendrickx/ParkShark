@@ -13,7 +13,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -54,7 +53,7 @@ public class DivisionServiceTest {
     @Test
     void assignSubDivision_givenWrongSubDivisionId_thenThrowDivisionDoesNotExistException() {
         // Given
-        when(divisionRepository.findById(1)).thenReturn(java.util.Optional.of(new Division()));
+        when(divisionRepository.findById(1)).thenReturn(new Division());
         // When
         // Then
         assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2)).isInstanceOf(DivisionDoesNotExistException.class);
@@ -63,7 +62,7 @@ public class DivisionServiceTest {
     @Test
     void assignSubDivision_givenWrongDivisionId_thenThrowDivisionDoesNotExistException() {
         // Given
-        when(divisionRepository.findById(1)).thenReturn(Optional.empty());
+        when(divisionRepository.findById(1)).thenReturn(null);
         // When
         // Then
         assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2)).isInstanceOf(DivisionDoesNotExistException.class);
