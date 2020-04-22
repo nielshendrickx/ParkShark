@@ -18,4 +18,9 @@ public class Contactperson extends Person {
 
     public Contactperson() {
     }
+
+    @Override
+    public Role getRole() {
+        return Role.CONTACTPERSON;
+    }
 }
