@@ -42,7 +42,7 @@ public class DivisionServiceTest {
     @Test
     void getAllDivision() {
         // Given
-        Iterable<Division> divisions = new ArrayList<>(List.of(new Division(), new Division()));
+        List<Division> divisions = new ArrayList<>(List.of(new Division(), new Division()));
         when(divisionRepository.findAll()).thenReturn(divisions);
         // When
         List<DivisionDTO> divisionDTOS = divisionService.getAllDivisions();
