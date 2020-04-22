@@ -1,4 +1,4 @@
-package com.switchfully.parkshark.domain.user;
+package com.switchfully.parkshark.domain.user.security;
 
 public enum Role {
     CONTACTPERSON(Values.CONTACTPERSON),
