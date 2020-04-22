@@ -10,9 +10,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @DataJpaTest
@@ -49,14 +48,14 @@ class DivisionRepositoryTest {
         assertThat(actualDivision).isEqualTo(expectedDivision);
     }
 
-    //    @Test
-//    void saveThreeDivisions_checkThatIdOfThirdIsRight() {
-//        Division division = new Division("bla", "bla", "bla");
-//        Division division2 = new Division("bla", "bla", "bla");
-//        Division division3 = divisionRepository.save(new Division("checkThis", "bla", "bla"));
-//        List<Division> divisionList = Arrays.asList(division, division2);
-//        divisionRepository.saveAll(divisionList);
-//        Optional<Division> toCheck = divisionRepository.findById(division3.getId());
-//        Assertions.assertThat(toCheck.isPresent()).isTrue();
-//    }
+        @Test
+    void saveThreeDivisions_checkThatIdOfThirdIsRight() {
+        Division division = new Division("bla", "bla", "bla");
+        Division division2 = new Division("bla", "bla", "bla");
+        Division division3 = divisionRepository.save(new Division("checkThis", "bla", "bla"));
+        List<Division> divisionList = Arrays.asList(division, division2);
+        divisionRepository.saveAll(divisionList);
+        Division toCheck = divisionRepository.findById(division3.getId());
+        Assertions.assertThat(toCheck).isNotNull();
+    }
 }
