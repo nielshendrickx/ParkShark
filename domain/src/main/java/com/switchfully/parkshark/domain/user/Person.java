@@ -1,7 +1,6 @@
 package com.switchfully.parkshark.domain.user;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.security.Role;
 
 import javax.persistence.*;
@@ -39,7 +38,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("address") Address address) {
+    public Person(String firstName, String lastName, String email, String mobilePhoneNumber, String regularPhoneNumber, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

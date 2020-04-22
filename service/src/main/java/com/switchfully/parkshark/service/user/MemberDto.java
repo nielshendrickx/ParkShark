@@ -1,7 +1,5 @@
 package com.switchfully.parkshark.service.user;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.member.LicensePlate;
 import com.switchfully.parkshark.domain.user.member.MembershipLevel;
@@ -14,8 +12,7 @@ public class MemberDto extends PersonDto{
     private String password;
     private LocalDate registrationDate;
 
-    @JsonCreator
-    public MemberDto(@JsonProperty("id") long id, @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("membershipLevel") MembershipLevel membershipLevel, @JsonProperty("password") String password, @JsonProperty("registrationDate") LocalDate registrationDate) {
+    public MemberDto(long id, String firstName, String lastName,String mobilePhoneNumber, String regularPhoneNumber,String email,Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password, LocalDate registrationDate) {
         super(id, firstName, lastName, mobilePhoneNumber, regularPhoneNumber, email, address);
         this.licensePlate = licensePlate;
         this.membershipLevel = membershipLevel;

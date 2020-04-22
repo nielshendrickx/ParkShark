@@ -7,11 +7,11 @@ import com.switchfully.parkshark.domain.user.member.LicensePlate;
 
 public class CreateMemberDto extends CreatePersonDto {
     private LicensePlate licensePlate;
-    private int membershipLevelId;
+    private long membershipLevelId;
     private String password;
 
     @JsonCreator
-    public CreateMemberDto(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("password") String password,  @JsonProperty("membershipLevelId") int membershipLevelId) {
+    public CreateMemberDto(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("password") String password,  @JsonProperty("membershipLevelId") long membershipLevelId) {
         super(firstName, lastName, mobilePhoneNumber, regularPhoneNumber, email, address);
         this.licensePlate = licensePlate;
         this.membershipLevelId = membershipLevelId;
@@ -22,7 +22,7 @@ public class CreateMemberDto extends CreatePersonDto {
         return licensePlate;
     }
 
-    public int getMembershipLevelId() {
+    public long getMembershipLevelId() {
         return membershipLevelId;
     }
 

@@ -53,7 +53,7 @@ public class MemberMapper {
         return memberCollection.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    private MembershipLevel convertToMembership(int memberschipLevelId){
+    private MembershipLevel convertToMembership(long memberschipLevelId){
         if(memberschipLevelId == 0){
            return membershipLevelRepository.findByName("Bronze");
         }

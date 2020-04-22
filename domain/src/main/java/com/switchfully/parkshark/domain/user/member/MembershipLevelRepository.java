@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface MembershipLevelRepository extends CrudRepository<MembershipLevel, Long> {
 
-    MembershipLevel findById(int id);
+    MembershipLevel findById(long id);
     MembershipLevel findByName(String name);
 }
