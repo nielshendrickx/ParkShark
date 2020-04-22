@@ -8,7 +8,6 @@ import com.switchfully.parkshark.domain.user.security.Role;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-//todo: discuss whether contactperson dto/mapper/service/creator are necessary
 @Entity
 @DiscriminatorValue(value = Role.Values.CONTACTPERSON)
 public class Contactperson extends Person {

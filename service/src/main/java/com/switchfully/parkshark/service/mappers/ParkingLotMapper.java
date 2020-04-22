@@ -1,9 +1,7 @@
 package com.switchfully.parkshark.service.mappers;
 
 import com.google.common.collect.Lists;
-import com.switchfully.parkshark.domain.division.Division;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
-import com.switchfully.parkshark.service.division.DivisionDTO;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.ParkingLotDto;
 
