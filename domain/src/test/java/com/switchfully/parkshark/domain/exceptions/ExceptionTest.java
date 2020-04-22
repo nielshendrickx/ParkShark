@@ -13,7 +13,7 @@ class ExceptionTest {
 
     @Test
     void memberNotFoundException_returnsCorrectMessage() {
-        assertEquals("Could not find the user.", new MemberNotFoundException().getMessage());
+        assertEquals("Could not find the user.", new UserNotFoundException().getMessage());
     }
 
     @Test
