@@ -1,5 +1,7 @@
 package com.switchfully.parkshark.service.services;
 
+import com.switchfully.parkshark.domain.division.Division;
+import com.switchfully.parkshark.domain.exceptions.DivisionDoesNotExistException;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLotRepository;
 import com.switchfully.parkshark.service.mappers.ParkingLotMapper;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
@@ -29,6 +31,20 @@ public class ParkingLotService {
     public List<ParkingLotDto> getAllParkingLots(){
         return ParkingLotMapper.toDto(parkingLotRepository.findAll());
     }
+
+//    public void assignDivision(int divisionId, int parkingLotId) {
+//        assertThatDivisionExists(divisionId);
+//        assertThatDivisionExists(subId);
+//        Division parentDivision = divisionRepository.findById(divisionId);
+//        Division subDivision = divisionRepository.findById(subId);
+//        subDivision.setParentDivision(parentDivision);
+//    }
+//
+//    private void assertThatDivisionExists(int divisionId) {
+//        if(divisionRepository.findById(divisionId) == null){
+//            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
+//        }
+//    }
 
     //todo: add assignDivision and assertThatDivision exists method (without code duplication, see DivisionService) ==> duplicate it
 }

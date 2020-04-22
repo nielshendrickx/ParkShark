@@ -58,13 +58,6 @@ class MemberRepositoryTest {
         Assertions.assertThat(toCheck).isNotEqualTo(null);
     }
 
-
-    @AfterEach
-    void breakDown() {
-        memberRepository.deleteAll();
-        membershipLevelRepository.deleteAll();
-    }
-
     @BeforeEach
     void fillDefaultMemberShips() {
         MembershipLevel membershipLevelBronze = new MembershipLevel("Bronze", 0.0, 0.0,4);
@@ -73,5 +66,11 @@ class MemberRepositoryTest {
         membershipLevelRepository.save(membershipLevelSilver);
         MembershipLevel membershipLevelGold = new MembershipLevel("Gold", 40.0, 0.3,24);
         membershipLevelRepository.save(membershipLevelGold);
+    }
+
+    @AfterEach
+    void breakDown() {
+        memberRepository.deleteAll();
+        membershipLevelRepository.deleteAll();
     }
 }
