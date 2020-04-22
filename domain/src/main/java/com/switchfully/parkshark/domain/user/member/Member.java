@@ -29,7 +29,7 @@ public class Member extends Person {
     }
 
     public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password) {
-        super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
+        super(firstName, lastName, email, mobilePhoneNumber, regularPhoneNumber, address);
         this.licensePlate = licensePlate;
         setMembershipLevel(membershipLevel);
         this.password = Hash.hash(password);

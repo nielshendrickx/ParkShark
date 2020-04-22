@@ -2,10 +2,7 @@ package com.switchfully.parkshark;
 
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.Postal;
-import com.switchfully.parkshark.domain.user.member.LicensePlate;
-import com.switchfully.parkshark.domain.user.member.Member;
-import com.switchfully.parkshark.domain.user.member.MemberRepository;
-import com.switchfully.parkshark.domain.user.member.MembershipLevel;
+import com.switchfully.parkshark.domain.user.member.*;
 import com.switchfully.parkshark.service.services.MemberService;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
@@ -23,6 +20,9 @@ class MemberServiceTest {
 
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private MembershipLevelRepository membershipLevelRepository;
 
     @Autowired
     private MemberRepository memberRepository;
@@ -44,7 +44,9 @@ class MemberServiceTest {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
         LicensePlate licensePlate = new LicensePlate("1-aaa-111", "BE");
-        Member member = new Member("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate, new MembershipLevel(), "password");
+        MembershipLevel membershipLevel = new MembershipLevel("Bronze", 0.0, 0.0,4);
+        membershipLevelRepository.save(membershipLevel);
+        Member member = new Member("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate, membershipLevelRepository.findByName("Bronze") , "password");
         memberRepository.save(member);
         Collection<MemberDto> memberDtoList = memberService.getAllMembers();
         Assertions.assertThat(memberDtoList).hasSize(1);

@@ -21,7 +21,7 @@ public class Manager extends Person {
     }
 
     public Manager(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("password") String password) {
-        super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
+        super(firstName, lastName, email, mobilePhoneNumber, regularPhoneNumber, address);
         this.password = Hash.hash(password);
     }
 

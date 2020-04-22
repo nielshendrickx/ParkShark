@@ -29,10 +29,9 @@ public class MemberService {
         return memberMapper.toDto(memberRepository.save(memberMapper.toMember(newMember)));
     }
 
-    public boolean isEmailAvailable(String email) throws EmailAlreadyRegisteredException {
+    public void isEmailAvailable(String email) throws EmailAlreadyRegisteredException {
         if (memberRepository.findByEmail(email) != null) {
             throw new EmailAlreadyRegisteredException(email);
         }
-        return true;
     }
 }
