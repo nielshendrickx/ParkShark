@@ -23,7 +23,7 @@ public class ParkingLotService {
         this.parkingLotRepository = parkingLotRepository;
     }
 
-    public ParkingLotDto saveParkingLot(CreateParkingLotDto createParkingLotDto) {
+    public ParkingLotDto registerParkingLot(CreateParkingLotDto createParkingLotDto) {
         return ParkingLotMapper.toDto(parkingLotRepository.save(ParkingLotMapper.toParkingLot(createParkingLotDto)));
     }
 
@@ -32,19 +32,4 @@ public class ParkingLotService {
         return ParkingLotMapper.toDto(parkingLotRepository.findAll());
     }
 
-//    public void assignDivision(int divisionId, int parkingLotId) {
-//        assertThatDivisionExists(divisionId);
-//        assertThatDivisionExists(subId);
-//        Division parentDivision = divisionRepository.findById(divisionId);
-//        Division subDivision = divisionRepository.findById(subId);
-//        subDivision.setParentDivision(parentDivision);
-//    }
-//
-//    private void assertThatDivisionExists(int divisionId) {
-//        if(divisionRepository.findById(divisionId) == null){
-//            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
-//        }
-//    }
-
-    //todo: add assignDivision and assertThatDivision exists method (without code duplication, see DivisionService) ==> duplicate it
 }

@@ -9,6 +9,7 @@ import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
 import com.switchfully.parkshark.service.Views;
 
 public class ParkingLotDto {
+    private int id;
     @JsonView({Views.Manager.class, Views.showAllParkingInfo.class})
     private String name;
     @JsonView(Views.showAllParkingInfo.class)
@@ -25,6 +26,7 @@ public class ParkingLotDto {
     private Division division;
 
     public ParkingLotDto(ParkingLot parkingLot) {
+        this.id = parkingLot.getId();
         this.name = parkingLot.getName();
         this.category=parkingLot.getCategory();
         this.capacity=parkingLot.getCapacity();

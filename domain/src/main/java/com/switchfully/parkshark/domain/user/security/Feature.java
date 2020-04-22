@@ -12,9 +12,11 @@ public enum Feature {
     VIEW_MEMBER(Role.MANAGER),
     VIEW_DIVISIONS(Role.MANAGER),
     VIEW_DIVISION(Role.MANAGER),
+    VIEW_PARKING_LOT(Role.MANAGER),
     CREATE_DIVISION(Role.MANAGER),
     CREATE_SUB_DIVISION(Role.MANAGER),
     CREATE_PARKING_LOT(Role.MANAGER);
+
 
     private Role[] roles;
 
