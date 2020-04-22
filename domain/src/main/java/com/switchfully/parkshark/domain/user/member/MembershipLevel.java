@@ -13,15 +13,42 @@ public class MembershipLevel {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "monthly_cost")
+    @Column(name = "monthlyCost")
     private double monthlyCost;
 
     @Column(name = "reduction")
     private double reduction;
 
-    @Column(name = "max_park_hours")
+    @Column(name = "maxParkHours")
     private int maxParkHours;
 
     public MembershipLevel() {
+    }
+
+    public MembershipLevel(String name, double monthlyCost, double reduction, int maxParkHours) {
+        this.name = name;
+        this.monthlyCost = monthlyCost;
+        this.reduction = reduction;
+        this.maxParkHours = maxParkHours;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getMonthlyCost() {
+        return monthlyCost;
+    }
+
+    public double getReduction() {
+        return reduction;
+    }
+
+    public int getMaxParkHours() {
+        return maxParkHours;
     }
 }

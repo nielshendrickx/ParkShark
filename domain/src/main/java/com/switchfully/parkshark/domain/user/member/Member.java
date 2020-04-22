@@ -1,6 +1,5 @@
 package com.switchfully.parkshark.domain.user.member;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.Person;
 import com.switchfully.parkshark.domain.user.security.Hash;
@@ -29,7 +28,7 @@ public class Member extends Person {
     public Member() {
     }
 
-    public Member(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, MembershipLevel membershipLevel, @JsonProperty("password") String password) {
+    public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password) {
         super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
         this.licensePlate = licensePlate;
         setMembershipLevel(membershipLevel);
