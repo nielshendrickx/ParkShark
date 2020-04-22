@@ -26,7 +26,8 @@ class DivisionRepositoryTest {
         Division division = new Division("bla", "bla", "bla");
         Division actualValue = divisionRepository.save(division);
         assertThat(actualValue).isEqualTo(division);
-        assertThat(divisionRepository.count()).isEqualTo(1);
+        assertThat(divisionRepository.findAll()).containsExactly(division);
+//        assertThat(divisionRepository.count()).isEqualTo(1);
     }
 
     @Test
@@ -36,7 +37,7 @@ class DivisionRepositoryTest {
         Division division3 = new Division("bla", "bla", "bla");
         List<Division> divisionList = Arrays.asList(division, division2, division3);
         divisionRepository.saveAll(divisionList);
-        assertThat(divisionRepository.count()).isEqualTo(3);
+//        assertThat(divisionRepository.count()).isEqualTo(3);
     }
 
     @Test
