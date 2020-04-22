@@ -55,10 +55,12 @@ public class Member extends Person {
         return membershipLevel;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
+    @Override
     public Role getRole() {
         return Role.MEMBER;
     }

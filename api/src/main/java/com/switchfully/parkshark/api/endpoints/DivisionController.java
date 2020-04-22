@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,6 +29,7 @@ public class DivisionController {
         this.divisionService = divisionService;
     }
 
+    @PreAuthorize("hasAuthority('CREATE_DIVISION')")
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Create a division", notes = "A manager can create a division", response = DivisionDTO.class)
     @ResponseStatus(HttpStatus.CREATED)
@@ -36,6 +38,7 @@ public class DivisionController {
         return divisionService.saveDivision(createDivisionDTO);
     }
 
+    @PreAuthorize("hasAuthority('VIEW_DIVISIONS')")
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all divisions", notes = "A list of all the registered division will be returned", response = DivisionDTO.class)
     @ResponseStatus(HttpStatus.OK)
@@ -44,6 +47,7 @@ public class DivisionController {
         return divisionService.getAllDivisions();
     }
 
+    @PreAuthorize("hasAuthority('CREATE_SUB_DIVISION')")
     @PostMapping(path = "/{primaryKeyId}/{parentDivisionKey}")
     @ApiOperation(value = "Assign a subdivision to a division", notes = "A division is a subdivision when it refers to a other division")
     @ResponseStatus(HttpStatus.CREATED)
