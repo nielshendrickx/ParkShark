@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class ParkingLotService {
@@ -21,6 +23,11 @@ public class ParkingLotService {
 
     public ParkingLotDto saveParkingLot(CreateParkingLotDto createParkingLotDto) {
         return ParkingLotMapper.toDto(parkingLotRepository.save(ParkingLotMapper.toParkingLot(createParkingLotDto)));
+    }
+
+    //todo: have it return limited parking lots with the id, name, capacity and the contact person's e-mail + telephone (nothing else)
+    public List<ParkingLotDto> getAllParkingLots(){
+        return ParkingLotMapper.toDto(parkingLotRepository.findAll());
     }
 
     //todo: add assignDivision and assertThatDivision exists method (without code duplication, see DivisionService)

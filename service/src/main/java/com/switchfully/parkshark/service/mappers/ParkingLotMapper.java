@@ -30,4 +30,5 @@ public class ParkingLotMapper {
         List<ParkingLot> list = Lists.newArrayList(parkingLots);
         return list.stream().map(ParkingLotMapper::toDto).collect(Collectors.toList());
     }
+
 }
