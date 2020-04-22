@@ -15,7 +15,8 @@ public enum Feature {
     VIEW_PARKING_LOT(Role.MANAGER),
     CREATE_DIVISION(Role.MANAGER),
     CREATE_SUB_DIVISION(Role.MANAGER),
-    CREATE_PARKING_LOT(Role.MANAGER);
+    CREATE_PARKING_LOT(Role.MANAGER),
+    CREATE_CONTACT(Role.MANAGER);
 
 
     private Role[] roles;
