@@ -2,6 +2,7 @@ package com.switchfully.parkshark.domain.user;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.switchfully.parkshark.domain.user.security.Role;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -73,6 +74,14 @@ public abstract class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public String getPassword() {
+        return "";
+    }
+
+    public Role getRole() {
+        return Role.CONTACTPERSON;
     }
 
     @Override

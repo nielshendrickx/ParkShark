@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @PreAuthorize("hasAuthority('VIEW_MEMBERS')")
     @GetMapping(produces = "application/json")
     @ApiOperation(value = "Get all registered members", notes = "A list of all the registered members will be returned", response = MemberDto.class)
     @ResponseStatus(HttpStatus.OK)

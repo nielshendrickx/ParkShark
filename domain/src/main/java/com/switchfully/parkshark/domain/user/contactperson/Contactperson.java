@@ -3,7 +3,7 @@ package com.switchfully.parkshark.domain.user.contactperson;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.Person;
-import com.switchfully.parkshark.domain.user.Role;
+import com.switchfully.parkshark.domain.user.security.Role;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
