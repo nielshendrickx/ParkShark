@@ -32,7 +32,7 @@ class MemberServiceTest {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
         LicensePlate licensePlate = new LicensePlate("1-aaa-111", "BE");
-        CreateMemberDto createMemberDto = new CreateMemberDto("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate,"password");
+        CreateMemberDto createMemberDto = new CreateMemberDto("firstName", "lastName", "0473000000", "016000000", "email@test.com", address, licensePlate,"password", 1);
         MemberDto memberDto = memberService.register(createMemberDto);
         Assertions.assertThat(memberDto.getFirstName()).isEqualTo("firstName");
         Assertions.assertThat(memberDto.getLastName()).isEqualTo("lastName");

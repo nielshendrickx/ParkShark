@@ -1,5 +1,6 @@
 package com.switchfully.parkshark.service.mappers;
 
+import com.switchfully.parkshark.domain.user.member.MembershipLevel;
 import com.switchfully.parkshark.domain.user.member.MembershipLevelRepository;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
@@ -44,11 +45,18 @@ public class MemberMapper {
                 createMemberDto.getEmail(),
                 createMemberDto.getAddress(),
                 createMemberDto.getLicensePlate(),
-                membershipLevelRepository.findById(createMemberDto.getMembershipLevelId()),
+                convertToMembership(createMemberDto.getMembershipLevelId()),
                 createMemberDto.getPassword());
     }
 
     public Collection<MemberDto> toDto (Collection <Member> memberCollection) {
         return memberCollection.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    private MembershipLevel convertToMembership(int memberschipLevelId){
+        if(memberschipLevelId == 0){
+           return membershipLevelRepository.findByName("Bronze");
+        }
+        return  membershipLevelRepository.findById(memberschipLevelId);
     }
 }

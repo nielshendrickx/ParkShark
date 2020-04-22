@@ -29,7 +29,7 @@ public class Member extends Person {
     public Member() {
     }
 
-    public Member(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("membershipLevel") MembershipLevel membershipLevel, @JsonProperty("password") String password) {
+    public Member(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, MembershipLevel membershipLevel, @JsonProperty("password") String password) {
         super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
         this.licensePlate = licensePlate;
         setMembershipLevel(membershipLevel);
