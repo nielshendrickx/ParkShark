@@ -1,5 +1,7 @@
 package com.switchfully.parkshark.api.endpoints;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import com.switchfully.parkshark.service.Views;
 import com.switchfully.parkshark.service.services.MemberService;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
@@ -37,6 +39,7 @@ public class MemberController {
         return memberService.getAllMembers();
     }
 
+    @JsonView(Views.Public.class)
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ApiOperation(value = "Register as a member", notes = "Everyone can freely join ParkShark!" , response = MemberDto.class)
     @ResponseStatus(HttpStatus.CREATED)
