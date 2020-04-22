@@ -13,6 +13,12 @@ import java.time.LocalDate;
 @DiscriminatorValue(value = Role.Values.MEMBER)
 public class Member extends Person {
 
+    @Column(name = "mobilePhoneNumber")
+    private String mobilePhoneNumber;
+
+    @Column(name = "regularPhoneNumber")
+    private String regularPhoneNumber;
+
     @Embedded
     private LicensePlate licensePlate;
 
@@ -29,18 +35,30 @@ public class Member extends Person {
     }
 
     public Member(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address, @JsonProperty("licensePlate") LicensePlate licensePlate, @JsonProperty("membershipLevel") MembershipLevel membershipLevel, @JsonProperty("password") String password) {
-        super(firstName,lastName,mobilePhoneNumber,regularPhoneNumber,email,address);
+        super(firstName, lastName, email, address);
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.regularPhoneNumber = regularPhoneNumber;
         this.licensePlate = licensePlate;
         this.membershipLevel = membershipLevel;
         this.password = Hash.hash(password);
     }
 
     public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password, LocalDate registrationDate) {
-        super(firstName, lastName, mobilePhoneNumber, regularPhoneNumber, email, address);
+        super(firstName, lastName, email, address);
+        this.mobilePhoneNumber = mobilePhoneNumber;
+        this.regularPhoneNumber = regularPhoneNumber;
         this.licensePlate = licensePlate;
         this.membershipLevel = membershipLevel;
         this.password = password;
         this.registrationDate = registrationDate;
+    }
+
+    public String getMobilePhoneNumber() {
+        return mobilePhoneNumber;
+    }
+
+    public String getRegularPhoneNumber() {
+        return regularPhoneNumber;
     }
 
     public LicensePlate getLicensePlate() {

@@ -13,6 +13,10 @@ public enum Feature {
     VIEW_DIVISIONS(Role.MANAGER),
     VIEW_DIVISION(Role.MANAGER);
 
+    //todo
+    //CREATE_PARKING_LOT(Role.MANAGER);
+    //make it so that only a manager can create parking lots
+
     private Role[] roles;
 
     Feature(Role... roles) {this.roles = roles; }

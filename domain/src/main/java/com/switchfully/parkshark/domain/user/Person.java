@@ -24,12 +24,6 @@ public abstract class Person {
     @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "mobilePhoneNumber")
-    private String mobilePhoneNumber;
-
-    @Column(name = "regularPhoneNumber")
-    private String regularPhoneNumber;
-
     @Column(name = "email")
     private String email;
 
@@ -39,11 +33,9 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("mobilePhoneNumber") String mobilePhoneNumber, @JsonProperty("regularPhoneNumber") String regularPhoneNumber, @JsonProperty("email") String email, @JsonProperty("address") Address address) {
+    public Person(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email, @JsonProperty("address") Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.mobilePhoneNumber = mobilePhoneNumber;
-        this.regularPhoneNumber = regularPhoneNumber;
         this.email = email;
         this.address = address;
     }
@@ -58,14 +50,6 @@ public abstract class Person {
 
     public String getLastName() {
         return lastName;
-    }
-
-    public String getMobilePhoneNumber() {
-        return mobilePhoneNumber;
-    }
-
-    public String getRegularPhoneNumber() {
-        return regularPhoneNumber;
     }
 
     public String getEmail() {
