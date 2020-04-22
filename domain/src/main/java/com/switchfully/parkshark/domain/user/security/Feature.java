@@ -13,11 +13,8 @@ public enum Feature {
     VIEW_DIVISIONS(Role.MANAGER),
     VIEW_DIVISION(Role.MANAGER),
     CREATE_DIVISION(Role.MANAGER),
-    CREATE_SUB_DIVISION(Role.MANAGER);
-
-    //todo
-    //CREATE_PARKING_LOT(Role.MANAGER);
-    //make it so that only a manager can create parking lots
+    CREATE_SUB_DIVISION(Role.MANAGER),
+    CREATE_PARKING_LOT(Role.MANAGER);
 
     private Role[] roles;
 

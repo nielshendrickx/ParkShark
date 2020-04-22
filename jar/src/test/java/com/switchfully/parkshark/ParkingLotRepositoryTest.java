@@ -21,7 +21,7 @@ public class ParkingLotRepositoryTest {
     void saveParkingLot() {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
-        Contactperson contactperson = new Contactperson("a","b","1234567890","test@test.com",address);
+        Contactperson contactperson = new Contactperson("a","b","123","456","test@test.com",address);
         ParkingLot parkingLot = new ParkingLot("parkingLotName", Category.ABOVEGROUND,100,contactperson,address,12.1,new Division());
         ParkingLot actualValue = parkingLotRepository.save(parkingLot);
         Assertions.assertThat(actualValue).isEqualTo(parkingLot);
@@ -33,7 +33,7 @@ public class ParkingLotRepositoryTest {
     void saveThreeParkingLots() {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
-        Contactperson contactperson = new Contactperson("a","b","1234567890","test@test.com",address);
+        Contactperson contactperson = new Contactperson("a","b","123","456","test@test.com",address);
         ParkingLot parkingLot = new ParkingLot("parkingLotName", Category.ABOVEGROUND,100,contactperson,address,12.1,new Division());
         ParkingLot parkingLot2 = new ParkingLot("parkingLotName2", Category.ABOVEGROUND,100,contactperson,address,12.1,new Division());
         ParkingLot parkingLot3 = new ParkingLot("parkingLotName3", Category.ABOVEGROUND,100,contactperson,address,12.1,new Division());
