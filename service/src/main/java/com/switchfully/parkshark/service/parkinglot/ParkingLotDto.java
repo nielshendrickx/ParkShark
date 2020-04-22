@@ -1,12 +1,12 @@
 package com.switchfully.parkshark.service.parkinglot;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.switchfully.parkshark.domain.division.Division;
 import com.switchfully.parkshark.domain.parkinglot.Category;
+import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
 
-public class CreateParkingLotDto {
+public class ParkingLotDto {
     private String name;
     private Category category;
     private int capacity;
@@ -15,15 +15,14 @@ public class CreateParkingLotDto {
     private double pricePerHour;
     private Division division;
 
-    @JsonCreator
-    public CreateParkingLotDto(String name, Category category, int capacity, Contactperson contactperson, Address address, double pricePerHour, Division division) {
-        this.name = name;
-        this.category = category;
-        this.capacity = capacity;
-        this.contactperson = contactperson;
-        this.address = address;
-        this.pricePerHour = pricePerHour;
-        this.division = division;
+    public ParkingLotDto(ParkingLot parkingLot) {
+        this.name = parkingLot.getName();
+        this.category=parkingLot.getCategory();
+        this.capacity=parkingLot.getCapacity();
+        this.contactperson = parkingLot.getContactperson();
+        this.address=parkingLot.getAddress();
+        this.pricePerHour = parkingLot.getPricePerHour();
+        this.division = parkingLot.getDivision();
     }
 
     public String getName() {

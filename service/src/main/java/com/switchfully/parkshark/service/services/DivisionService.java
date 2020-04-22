@@ -30,7 +30,7 @@ public class DivisionService {
 
 
     public List<DivisionDTO> getAllDivisions() {
-        return DivisionMapper.toDtoList(divisionRepository.findAll());
+        return DivisionMapper.toDto(divisionRepository.findAll());
     }
 
 

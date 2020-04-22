@@ -20,6 +20,19 @@ public class MemberMapper {
         this.membershipLevelRepository = membershipLevelRepository;
     }
 
+    public Member toMember (CreateMemberDto createMemberDto) {
+        return new Member(
+                createMemberDto.getFirstName(),
+                createMemberDto.getLastName(),
+                createMemberDto.getMobilePhoneNumber(),
+                createMemberDto.getRegularPhoneNumber(),
+                createMemberDto.getEmail(),
+                createMemberDto.getAddress(),
+                createMemberDto.getLicensePlate(),
+                membershipLevelRepository.findById(createMemberDto.getMembershipLevelId()),
+                createMemberDto.getPassword());
+    }
+
     public MemberDto toDto (Member member) {
         return new MemberDto(
                 member.getId(),
@@ -33,19 +46,6 @@ public class MemberMapper {
                 member.getMembershipLevel(),
                 member.getPassword(),
                 member.getRegistrationDate());
-    }
-
-    public Member toMember (CreateMemberDto createMemberDto) {
-        return new Member(
-                createMemberDto.getFirstName(),
-                createMemberDto.getLastName(),
-                createMemberDto.getMobilePhoneNumber(),
-                createMemberDto.getRegularPhoneNumber(),
-                createMemberDto.getEmail(),
-                createMemberDto.getAddress(),
-                createMemberDto.getLicensePlate(),
-                membershipLevelRepository.findById(createMemberDto.getMembershipLevelId()),
-                createMemberDto.getPassword());
     }
 
     public Collection<MemberDto> toDto (Collection <Member> memberCollection) {

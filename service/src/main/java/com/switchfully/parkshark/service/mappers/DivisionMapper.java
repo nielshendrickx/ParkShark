@@ -20,7 +20,7 @@ public class DivisionMapper {
         return new DivisionDTO(division);
     }
 
-    public static List<DivisionDTO> toDtoList(Iterable<Division> divisions){
+    public static List<DivisionDTO> toDto(Iterable<Division> divisions){
         List<Division> list = Lists.newArrayList(divisions);
         return list.stream().map(DivisionMapper::toDto).collect(Collectors.toList());
     }
