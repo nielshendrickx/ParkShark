@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.member.LicensePlate;
-import com.switchfully.parkshark.domain.user.member.MembershipLevel;
 
 public class CreateMemberDto extends CreatePersonDto {
     private LicensePlate licensePlate;
