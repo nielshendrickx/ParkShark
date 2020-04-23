@@ -1,5 +1,6 @@
 package com.switchfully.parkshark.api.endpoints;
 
+import com.switchfully.parkshark.api.validation.Validation;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.LimitedParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.ParkingLotDto;

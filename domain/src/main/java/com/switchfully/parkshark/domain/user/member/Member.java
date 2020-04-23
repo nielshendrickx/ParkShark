@@ -28,7 +28,6 @@ public class Member extends Person {
     public Member() {
     }
 
-    //todo: is membershiplevel required in order to create a member? +create a test for this? Userstory: "Extend the Member registration so that upon registering a member we can choose to provide a membership level. However, it should still be possible to not provide one. In that case, we'll automatically set the membership level to bronze."
     public Member(String firstName, String lastName, String mobilePhoneNumber, String regularPhoneNumber, String email, Address address, LicensePlate licensePlate, MembershipLevel membershipLevel, String password) {
         super(firstName, lastName, email, mobilePhoneNumber, regularPhoneNumber, address);
         this.licensePlate = licensePlate;
