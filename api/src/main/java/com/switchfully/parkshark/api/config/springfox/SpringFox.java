@@ -25,7 +25,7 @@ public class SpringFox {
 
     private ApiInfo apiDetails() {
         return new ApiInfo(
-                "Order API",
+                "Parkshark",
                 "Parkshark project",
                 "1.0",
                 "Free to use",
