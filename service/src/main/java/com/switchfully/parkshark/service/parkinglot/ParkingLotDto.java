@@ -10,19 +10,12 @@ import com.switchfully.parkshark.service.Views;
 
 public class ParkingLotDto {
     private int id;
-    @JsonView({Views.Manager.class, Views.showAllParkingInfo.class})
     private String name;
-    @JsonView(Views.showAllParkingInfo.class)
     private Category category;
-    @JsonView({Views.Manager.class, Views.showAllParkingInfo.class})
     private int capacity;
-    @JsonView({Views.Manager.class, Views.showAllParkingInfo.class})
     private Contactperson contactperson;
-    @JsonView(Views.showAllParkingInfo.class)
     private Address address;
-    @JsonView( Views.showAllParkingInfo.class)
     private double pricePerHour;
-    @JsonView(Views.showAllParkingInfo.class)
     private Division division;
 
     public ParkingLotDto(ParkingLot parkingLot) {
