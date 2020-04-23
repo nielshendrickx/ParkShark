@@ -6,10 +6,8 @@ import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
 import com.switchfully.parkshark.domain.user.contactperson.ContactpersonRepository;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.ParkingLotDto;
-import com.switchfully.parkshark.service.services.ContactPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,10 +31,10 @@ public class ParkingLotMapper {
                 createParkingLotDto.getName(),
                 createParkingLotDto.getCategory(),
                 createParkingLotDto.getCapacity(),
-                contactpersonRepository.findById(createParkingLotDto.getContactpersonsId()),
+                contactpersonRepository.findById(createParkingLotDto.getContactpersonId()),
                 createParkingLotDto.getAddress(),
                 createParkingLotDto.getPricePerHour(),
-                divisionRepository.findById(createParkingLotDto.getDivisionsID()));
+                divisionRepository.findById(createParkingLotDto.getDivisionsId()));
     }
 
     public static ParkingLotDto toDto (ParkingLot parkingLot) {

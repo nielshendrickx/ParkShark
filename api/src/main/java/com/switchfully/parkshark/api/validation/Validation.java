@@ -1,13 +1,21 @@
 package com.switchfully.parkshark.api.validation;
 
-import com.switchfully.parkshark.domain.division.DivisionRepository;
-import com.switchfully.parkshark.domain.exceptions.DivisionDoesNotExistException;
+import com.switchfully.parkshark.domain.exceptions.ContactPersonNotValidException;
 import com.switchfully.parkshark.domain.exceptions.EmailNotValidException;
+import com.switchfully.parkshark.service.services.DivisionService;
+import com.switchfully.parkshark.service.user.CreatePersonDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Validation {
+
+    private DivisionService divisionService;
+
     @Autowired
-    private static DivisionRepository divisionRepository;
+    public Validation(DivisionService divisionService) {
+        this.divisionService = divisionService;
+    }
 
     public static void isValidEmailAddress(String email) throws EmailNotValidException {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
@@ -18,9 +26,13 @@ public class Validation {
         }
     }
 
-    public static void assertThatDivisionExists(int divisionId) {
-        if(divisionRepository.findById(divisionId) == null){
-            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
+    public static void assertThatContactPersonIsValid(CreatePersonDto createPersonDto) {
+        if(createPersonDto.getMobilePhoneNumber() == null && createPersonDto.getRegularPhoneNumber() == null) {
+            throw new ContactPersonNotValidException();
         }
+    }
+
+    public void assertThatDivisionExists(int divisionId) {
+        divisionService.assertThatDivisionExists(divisionId);
     }
 }

@@ -1,7 +1,5 @@
 package com.switchfully.parkshark.service.services;
 
-import com.switchfully.parkshark.domain.division.Division;
-import com.switchfully.parkshark.domain.exceptions.DivisionDoesNotExistException;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLotRepository;
 import com.switchfully.parkshark.service.mappers.ParkingLotMapper;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;

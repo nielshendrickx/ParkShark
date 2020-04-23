@@ -1,7 +1,6 @@
 package com.switchfully.parkshark.api.endpoints;
 
 import com.switchfully.parkshark.service.services.ContactPersonService;
-import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.CreatePersonDto;
 import com.switchfully.parkshark.service.user.PersonDto;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-import static com.switchfully.parkshark.api.validation.Validation.isValidEmailAddress;
+import static com.switchfully.parkshark.api.validation.Validation.*;
 
 @RestController
 @RequestMapping(path = ContactPersonController.CONTACT_RESOURCE_PATH)
@@ -41,6 +40,7 @@ public class ContactPersonController {
 
     private void validateNewContact(CreatePersonDto createPersonDto) throws IOException {
         isValidEmailAddress(createPersonDto.getEmail());
+        assertThatContactPersonIsValid(createPersonDto);
         contactPersonService.isEmailAvailable(createPersonDto.getEmail());
     }
 

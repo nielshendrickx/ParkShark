@@ -23,10 +23,12 @@ public class ParkingLotController {
     public static final String PARKING_LOT_RESOURCE_PATH = "/parkinglot";
     private final Logger loggerParkingLot = LoggerFactory.getLogger(ParkingLotController.class);
     private ParkingLotService parkingLotService;
+    private Validation validation;
 
     @Autowired
-    public ParkingLotController(ParkingLotService parkingLotService) {
+    public ParkingLotController(ParkingLotService parkingLotService, Validation validation) {
         this.parkingLotService = parkingLotService;
+        this.validation = validation;
     }
 
     @PreAuthorize("hasAuthority('VIEW_PARKING_LOT')")
@@ -39,13 +41,12 @@ public class ParkingLotController {
     }
 
     @PreAuthorize("hasAuthority('CREATE_PARKING_LOT')")
-    //todo public or manager?
-    @JsonView(Views.Public.class)
+    @JsonView(Views.showAllParkingInfo.class)
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ApiOperation(value = "Register a parking lot", notes = "A manager can register a parking lot", response = ParkingLotDto.class)
     @ResponseStatus(HttpStatus.CREATED)
     public ParkingLotDto register(@RequestBody CreateParkingLotDto newParkingLot) throws IOException {
-      //  Validation.assertThatDivisionExists(newParkingLot.getDivisionsID().getId());
+        validation.assertThatDivisionExists(newParkingLot.getDivisionsId());
         loggerParkingLot.info("Creating a new parking lot");
         return parkingLotService.registerParkingLot(newParkingLot);
     }

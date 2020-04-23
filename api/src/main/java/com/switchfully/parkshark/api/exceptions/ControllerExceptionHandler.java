@@ -3,6 +3,7 @@ package com.switchfully.parkshark.api.exceptions;
 
 import com.switchfully.parkshark.api.endpoints.DivisionController;
 import com.switchfully.parkshark.api.endpoints.MemberController;
+import com.switchfully.parkshark.domain.exceptions.ContactPersonNotValidException;
 import com.switchfully.parkshark.domain.exceptions.DivisionDoesNotExistException;
 import com.switchfully.parkshark.domain.exceptions.EmailNotValidException;
 import org.slf4j.Logger;
@@ -31,6 +32,12 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(DivisionDoesNotExistException.class)
     protected void divisionDoesNotExistException(DivisionDoesNotExistException exception, HttpServletResponse response) throws IOException {
+        loggerDivision.warn("Log Id: " + UUID.randomUUID() + " - " + exception.getMessage(), exception);
+        response.sendError(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
+    }
+
+    @ExceptionHandler(ContactPersonNotValidException.class)
+    protected void contactNotValidException(ContactPersonNotValidException exception, HttpServletResponse response) throws IOException {
         loggerDivision.warn("Log Id: " + UUID.randomUUID() + " - " + exception.getMessage(), exception);
         response.sendError(HttpStatus.BAD_REQUEST.value(), exception.getMessage());
     }
