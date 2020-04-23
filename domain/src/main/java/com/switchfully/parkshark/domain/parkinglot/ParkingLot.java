@@ -12,7 +12,7 @@ public class ParkingLot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @Column(name = "name")
     private String name;

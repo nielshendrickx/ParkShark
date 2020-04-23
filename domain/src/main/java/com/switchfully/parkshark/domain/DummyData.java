@@ -16,7 +16,7 @@ public class DummyData {
         this.managerRepository = managerRepository;
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
-        Manager manager = new Manager("man", "ager", "0473333333", "016808080", "manager2@parkshark.com", address, "manager");
+        Manager manager = new Manager("man", "ager", "0473333333", "016808080", "manager@parkshark.com", address, "manager");
         //managerRepository.save(manager);
     }
 }
