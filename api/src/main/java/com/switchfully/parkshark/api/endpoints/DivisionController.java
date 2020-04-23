@@ -51,9 +51,8 @@ public class DivisionController {
     @PostMapping(path = "/{primaryKeyId}/{parentDivisionKey}")
     @ApiOperation(value = "Assign a subdivision to a division", notes = "A division is a subdivision when it refers to a other division")
     @ResponseStatus(HttpStatus.CREATED)
-    public void assignSubDivision(@PathVariable int primaryKeyId, @PathVariable int parentDivisionKey) {
+    public DivisionDTO assignSubDivision(@PathVariable int primaryKeyId, @PathVariable int parentDivisionKey) {
         loggerDivision.info("Assign subdivision");
-        divisionService.assignSubDivision(parentDivisionKey,primaryKeyId);
+        return divisionService.assignSubDivision(parentDivisionKey,primaryKeyId);
     }
-
 }
