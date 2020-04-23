@@ -34,12 +34,13 @@ public class DivisionService {
     }
 
 
-    public void assignSubDivision(long divisionId, long subId) {
+    public DivisionDTO assignSubDivision(long divisionId, long subId) {
         assertThatDivisionExists(divisionId);
         assertThatDivisionExists(subId);
         Division parentDivision = divisionRepository.findById(divisionId);
         Division subDivision = divisionRepository.findById(subId);
         subDivision.setParentDivision(parentDivision);
+        return DivisionMapper.toDto(subDivision);
     }
 
     public void assertThatDivisionExists(long divisionId) {
