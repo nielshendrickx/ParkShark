@@ -50,7 +50,7 @@ public class ParkingLot {
         this.division = division;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

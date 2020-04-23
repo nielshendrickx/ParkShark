@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DivisionRepository extends CrudRepository<Division,Integer> {
+public interface DivisionRepository extends CrudRepository<Division,Long> {
 
-    Division findById(int id);
+    Division findById(long id);
     List<Division> findAll();
 
 }

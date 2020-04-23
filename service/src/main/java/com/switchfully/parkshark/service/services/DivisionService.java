@@ -34,7 +34,7 @@ public class DivisionService {
     }
 
 
-    public void assignSubDivision(int divisionId, int subId) {
+    public void assignSubDivision(long divisionId, long subId) {
         assertThatDivisionExists(divisionId);
         assertThatDivisionExists(subId);
         Division parentDivision = divisionRepository.findById(divisionId);
@@ -42,9 +42,9 @@ public class DivisionService {
         subDivision.setParentDivision(parentDivision);
     }
 
-    public void assertThatDivisionExists(int divisionId) {
+    public void assertThatDivisionExists(long divisionId) {
         if(divisionRepository.findById(divisionId) == null){
-            throw new DivisionDoesNotExistException(Integer.toString(divisionId));
+            throw new DivisionDoesNotExistException(Long.toString(divisionId));
         }
     }
 }

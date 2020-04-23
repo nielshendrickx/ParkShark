@@ -9,7 +9,7 @@ public class Division {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -33,7 +33,7 @@ public class Division {
     public Division() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

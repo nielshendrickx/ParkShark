@@ -9,13 +9,13 @@ public class CreateParkingLotDto {
     private String name;
     private Category category;
     private int capacity;
-    private int contactpersonId;
+    private long contactpersonId;
     private Address address;
     private double pricePerHour;
-    private int divisionsId;
+    private long divisionsId;
 
     @JsonCreator
-    public CreateParkingLotDto(@JsonProperty("name") String name, @JsonProperty("category") Category category, @JsonProperty("capacity") int capacity, @JsonProperty("contactpersonId") int contactpersonId, @JsonProperty("address") Address address, @JsonProperty("pricePerHour") double pricePerHour, @JsonProperty("divisionsId") int divisionsId) {
+    public CreateParkingLotDto(@JsonProperty("name") String name, @JsonProperty("category") Category category, @JsonProperty("capacity") int capacity, @JsonProperty("contactpersonId") long contactpersonId, @JsonProperty("address") Address address, @JsonProperty("pricePerHour") double pricePerHour, @JsonProperty("divisionsId") long divisionsId) {
         this.name = name;
         this.category = category;
         this.capacity = capacity;
@@ -37,7 +37,7 @@ public class CreateParkingLotDto {
         return capacity;
     }
 
-    public int getContactpersonId() {
+    public long getContactpersonId() {
         return contactpersonId;
     }
 
@@ -49,7 +49,7 @@ public class CreateParkingLotDto {
         return pricePerHour;
     }
 
-    public int getDivisionsId() {
+    public long getDivisionsId() {
         return divisionsId;
     }
 }

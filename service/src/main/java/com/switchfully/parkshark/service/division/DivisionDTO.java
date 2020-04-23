@@ -4,7 +4,7 @@ import com.switchfully.parkshark.domain.division.Division;
 
 public class DivisionDTO {
 
-    private int id;
+    private long id;
 
     private String name;
 
@@ -19,7 +19,7 @@ public class DivisionDTO {
         this.director = division.getDirector();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

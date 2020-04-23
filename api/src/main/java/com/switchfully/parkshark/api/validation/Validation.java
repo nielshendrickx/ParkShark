@@ -32,7 +32,7 @@ public class Validation {
         }
     }
 
-    public void assertThatDivisionExists(int divisionId) {
+    public void assertThatDivisionExists(long divisionId) {
         divisionService.assertThatDivisionExists(divisionId);
     }
 }
