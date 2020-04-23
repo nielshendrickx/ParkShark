@@ -1,7 +1,7 @@
 package com.switchfully.parkshark.service.parkinglot;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.switchfully.parkshark.domain.division.Division;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.switchfully.parkshark.domain.parkinglot.Category;
 import com.switchfully.parkshark.domain.user.Address;
 
@@ -9,23 +9,20 @@ public class CreateParkingLotDto {
     private String name;
     private Category category;
     private int capacity;
-    private int contactpersonsId;
+    private int contactpersonId;
     private Address address;
     private double pricePerHour;
-    private int divisionsID;
+    private int divisionsId;
 
     @JsonCreator
-    public CreateParkingLotDto(String name, Category category, int capacity, int contactpersonsId, Address address, double pricePerHour, int divisionsID) {
+    public CreateParkingLotDto(@JsonProperty("name") String name, @JsonProperty("category") Category category, @JsonProperty("capacity") int capacity, @JsonProperty("contactpersonId") int contactpersonId, @JsonProperty("address") Address address, @JsonProperty("pricePerHour") double pricePerHour, @JsonProperty("divisionsId") int divisionsId) {
         this.name = name;
         this.category = category;
         this.capacity = capacity;
-        this.contactpersonsId = contactpersonsId;
+        this.contactpersonId = contactpersonId;
         this.address = address;
         this.pricePerHour = pricePerHour;
-        this.divisionsID = divisionsID;
-    }
-
-    public CreateParkingLotDto() {
+        this.divisionsId = divisionsId;
     }
 
     public String getName() {
@@ -40,8 +37,8 @@ public class CreateParkingLotDto {
         return capacity;
     }
 
-    public int getContactpersonsId() {
-        return contactpersonsId;
+    public int getContactpersonId() {
+        return contactpersonId;
     }
 
     public Address getAddress() {
@@ -52,7 +49,7 @@ public class CreateParkingLotDto {
         return pricePerHour;
     }
 
-    public int getDivisionsID() {
-        return divisionsID;
+    public int getDivisionsId() {
+        return divisionsId;
     }
 }

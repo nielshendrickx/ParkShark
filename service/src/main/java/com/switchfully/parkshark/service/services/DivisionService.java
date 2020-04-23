@@ -42,7 +42,7 @@ public class DivisionService {
         subDivision.setParentDivision(parentDivision);
     }
 
-    private void assertThatDivisionExists(int divisionId) {
+    public void assertThatDivisionExists(int divisionId) {
         if(divisionRepository.findById(divisionId) == null){
             throw new DivisionDoesNotExistException(Integer.toString(divisionId));
         }

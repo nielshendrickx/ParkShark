@@ -30,10 +30,10 @@ public class ParkingLotMapper {
                 createParkingLotDto.getName(),
                 createParkingLotDto.getCategory(),
                 createParkingLotDto.getCapacity(),
-                contactpersonRepository.findById(createParkingLotDto.getContactpersonsId()),
+                contactpersonRepository.findById(createParkingLotDto.getContactpersonId()),
                 createParkingLotDto.getAddress(),
                 createParkingLotDto.getPricePerHour(),
-                divisionRepository.findById(createParkingLotDto.getDivisionsID()));
+                divisionRepository.findById(createParkingLotDto.getDivisionsId()));
     }
 
     public static ParkingLotDto toDto(ParkingLot parkingLot) {
