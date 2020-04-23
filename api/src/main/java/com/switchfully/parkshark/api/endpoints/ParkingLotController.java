@@ -1,9 +1,8 @@
 package com.switchfully.parkshark.api.endpoints;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.switchfully.parkshark.api.validation.Validation;
-import com.switchfully.parkshark.service.Views;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
+import com.switchfully.parkshark.service.parkinglot.LimitedParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.ParkingLotDto;
 import com.switchfully.parkshark.service.services.ParkingLotService;
 import io.swagger.annotations.ApiOperation;
@@ -35,13 +34,12 @@ public class ParkingLotController {
     @GetMapping(produces = "application/json")
     @ApiOperation(value = "Get all parking lots", notes = "A list of all the parking lots will be returned", response = ParkingLotDto.class)
     @ResponseStatus(HttpStatus.OK)
-    public Collection<ParkingLotDto> getAllParkingLots() {
+    public Collection<LimitedParkingLotDto> getAllParkingLots() {
         loggerParkingLot.info("Returning all parking lots");
-        return parkingLotService.getAllParkingLots();
+        return parkingLotService.getAllParkingLotsWithLimitedInfo();
     }
 
     @PreAuthorize("hasAuthority('CREATE_PARKING_LOT')")
-    @JsonView(Views.showAllParkingInfo.class)
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ApiOperation(value = "Register a parking lot", notes = "A manager can register a parking lot", response = ParkingLotDto.class)
     @ResponseStatus(HttpStatus.CREATED)
