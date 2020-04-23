@@ -1,4 +1,4 @@
-package com.switchfully.parkshark.service;
+package com.switchfully.parkshark.domain;
 
 public class Views {
     public static class Public {
@@ -9,7 +9,7 @@ public class Views {
 
     }
 
-    public static class showAllParkingInfo extends Manager {
+    public static class Internal extends Public {
 
     }
 }

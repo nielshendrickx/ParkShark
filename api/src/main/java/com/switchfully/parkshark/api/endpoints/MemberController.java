@@ -1,7 +1,7 @@
 package com.switchfully.parkshark.api.endpoints;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.switchfully.parkshark.service.Views;
+import com.switchfully.parkshark.domain.Views;
 import com.switchfully.parkshark.service.services.MemberService;
 import com.switchfully.parkshark.service.user.CreateMemberDto;
 import com.switchfully.parkshark.service.user.MemberDto;
@@ -31,6 +31,7 @@ public class MemberController {
     }
 
     @PreAuthorize("hasAuthority('VIEW_MEMBERS')")
+    @JsonView(Views.Manager.class)
     @GetMapping(produces = "application/json")
     @ApiOperation(value = "Get all registered members", notes = "A list of all the registered members will be returned", response = MemberDto.class)
     @ResponseStatus(HttpStatus.OK)

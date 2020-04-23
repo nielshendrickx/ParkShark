@@ -2,7 +2,9 @@ package com.switchfully.parkshark.service.user;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.switchfully.parkshark.domain.user.Address;
+import com.switchfully.parkshark.domain.Views;
 
 public class PersonDto {
     private long id;
@@ -11,6 +13,7 @@ public class PersonDto {
     private String mobilePhoneNumber;
     private String regularPhoneNumber;
     private String email;
+    @JsonView(Views.Internal.class)
     private Address address;
 
     @JsonCreator

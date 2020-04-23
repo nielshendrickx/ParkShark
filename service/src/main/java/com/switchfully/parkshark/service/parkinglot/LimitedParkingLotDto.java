@@ -3,7 +3,7 @@ package com.switchfully.parkshark.service.parkinglot;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
 
 public class LimitedParkingLotDto {
-    private int id;
+    private long id;
     private String name;
     private int capacity;
 
@@ -20,7 +20,7 @@ public class LimitedParkingLotDto {
         this.contactpersonTelephoneMobile = parkingLot.getContactperson().getMobilePhoneNumber();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
