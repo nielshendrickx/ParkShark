@@ -31,6 +31,5 @@ public class ParkingLotServiceTest {
         Contactperson contactperson = new Contactperson("a", "b", "123", "456", "test@test.com", address);
         contactpersonRepository.save(contactperson);
         CreateParkingLotDto createParkingLotDto = new CreateParkingLotDto("name",Category.ABOVEGROUND, 100, contactperson, address, 12.1, new Division());
-
     }
 }
