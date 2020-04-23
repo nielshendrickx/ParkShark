@@ -19,4 +19,28 @@ public class LimitedParkingLotDto {
         this.contactpersonTelephoneRegular = parkingLot.getContactperson().getRegularPhoneNumber();
         this.contactpersonTelephoneMobile = parkingLot.getContactperson().getMobilePhoneNumber();
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public String getContactpersonEmail() {
+        return contactpersonEmail;
+    }
+
+    public String getContactpersonTelephoneRegular() {
+        return contactpersonTelephoneRegular;
+    }
+
+    public String getContactpersonTelephoneMobile() {
+        return contactpersonTelephoneMobile;
+    }
 }

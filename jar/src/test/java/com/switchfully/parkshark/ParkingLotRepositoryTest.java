@@ -45,5 +45,4 @@ public class ParkingLotRepositoryTest {
         parkingLotRepository.save(parkingLot3);
         Assertions.assertThat(parkingLotRepository.count()).isEqualTo(3);
     }
-
 }

@@ -1,12 +1,10 @@
 package com.switchfully.parkshark.service.parkinglot;
 
-import com.fasterxml.jackson.annotation.JsonView;
 import com.switchfully.parkshark.domain.division.Division;
 import com.switchfully.parkshark.domain.parkinglot.Category;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
 import com.switchfully.parkshark.domain.user.Address;
 import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
-import com.switchfully.parkshark.service.Views;
 
 public class ParkingLotDto {
     private int id;

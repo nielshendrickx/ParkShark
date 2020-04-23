@@ -5,19 +5,16 @@ import com.switchfully.parkshark.domain.division.DivisionRepository;
 import com.switchfully.parkshark.domain.parkinglot.ParkingLot;
 import com.switchfully.parkshark.domain.user.contactperson.ContactpersonRepository;
 import com.switchfully.parkshark.service.parkinglot.CreateParkingLotDto;
+import com.switchfully.parkshark.service.parkinglot.LimitedParkingLotDto;
 import com.switchfully.parkshark.service.parkinglot.ParkingLotDto;
-import com.switchfully.parkshark.service.services.ContactPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Component
 public class ParkingLotMapper {
-
 
     private static ContactpersonRepository contactpersonRepository;
     private static DivisionRepository divisionRepository;
@@ -39,13 +36,21 @@ public class ParkingLotMapper {
                 divisionRepository.findById(createParkingLotDto.getDivisionsID()));
     }
 
-    public static ParkingLotDto toDto (ParkingLot parkingLot) {
+    public static ParkingLotDto toDto(ParkingLot parkingLot) {
         return new ParkingLotDto(parkingLot);
     }
 
-    public static List<ParkingLotDto> toDto(Iterable<ParkingLot> parkingLots){
+    public static LimitedParkingLotDto toLimitedDto(ParkingLot parkingLot) {
+        return new LimitedParkingLotDto(parkingLot);
+    }
+
+    public static List<ParkingLotDto> toDto(Iterable<ParkingLot> parkingLots) {
         List<ParkingLot> list = Lists.newArrayList(parkingLots);
         return list.stream().map(ParkingLotMapper::toDto).collect(Collectors.toList());
     }
 
+    public static List<LimitedParkingLotDto> toLimitedDto(Iterable<ParkingLot> parkingLots) {
+        List<ParkingLot> list = Lists.newArrayList(parkingLots);
+        return list.stream().map(ParkingLotMapper::toLimitedDto).collect(Collectors.toList());
+    }
 }
