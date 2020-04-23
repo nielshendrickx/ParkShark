@@ -45,7 +45,7 @@ public class ParkingLotController {
     @ApiOperation(value = "Register a parking lot", notes = "A manager can register a parking lot", response = ParkingLotDto.class)
     @ResponseStatus(HttpStatus.CREATED)
     public ParkingLotDto register(@RequestBody CreateParkingLotDto newParkingLot) throws IOException {
-        Validation.assertThatDivisionExists(newParkingLot.getDivision().getId());
+      //  Validation.assertThatDivisionExists(newParkingLot.getDivisionsID().getId());
         loggerParkingLot.info("Creating a new parking lot");
         return parkingLotService.registerParkingLot(newParkingLot);
     }

@@ -4,26 +4,28 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.switchfully.parkshark.domain.division.Division;
 import com.switchfully.parkshark.domain.parkinglot.Category;
 import com.switchfully.parkshark.domain.user.Address;
-import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
 
 public class CreateParkingLotDto {
     private String name;
     private Category category;
     private int capacity;
-    private Contactperson contactperson;
+    private int contactpersonsId;
     private Address address;
     private double pricePerHour;
-    private Division division;
+    private int divisionsID;
 
     @JsonCreator
-    public CreateParkingLotDto(String name, Category category, int capacity, Contactperson contactperson, Address address, double pricePerHour, Division division) {
+    public CreateParkingLotDto(String name, Category category, int capacity, int contactpersonsId, Address address, double pricePerHour, int divisionsID) {
         this.name = name;
         this.category = category;
         this.capacity = capacity;
-        this.contactperson = contactperson;
+        this.contactpersonsId = contactpersonsId;
         this.address = address;
         this.pricePerHour = pricePerHour;
-        this.division = division;
+        this.divisionsID = divisionsID;
+    }
+
+    public CreateParkingLotDto() {
     }
 
     public String getName() {
@@ -38,8 +40,8 @@ public class CreateParkingLotDto {
         return capacity;
     }
 
-    public Contactperson getContactperson() {
-        return contactperson;
+    public int getContactpersonsId() {
+        return contactpersonsId;
     }
 
     public Address getAddress() {
@@ -50,7 +52,7 @@ public class CreateParkingLotDto {
         return pricePerHour;
     }
 
-    public Division getDivision() {
-        return division;
+    public int getDivisionsID() {
+        return divisionsID;
     }
 }
