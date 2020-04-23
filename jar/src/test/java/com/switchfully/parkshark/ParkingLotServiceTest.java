@@ -24,7 +24,7 @@ public class ParkingLotServiceTest {
     @Autowired
     private ContactpersonRepository contactpersonRepository;
 
-    @Test
+  /*  @Test
     void whenCreateParkingLotDtoIsSaved_checkReturnDto() {
         Postal postal = new Postal("1000", "Brussel");
         Address address = new Address("Wetstraat", "1", postal);
@@ -32,5 +32,5 @@ public class ParkingLotServiceTest {
         contactpersonRepository.save(contactperson);
         CreateParkingLotDto createParkingLotDto = new CreateParkingLotDto("name",Category.ABOVEGROUND, 100, contactperson, address, 12.1, new Division());
 
-    }
+    }*/
 }
