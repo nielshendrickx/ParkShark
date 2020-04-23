@@ -10,6 +10,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ class DivisionServiceIntegrationTest {
     private DivisionRepository divisionRepository;
 
     @Test
+    @DirtiesContext
     void whenCreateDivisionDtoIsSaved_checkThatReturnSDivisionDto() {
         CreateDivisionDTO createDivisionDTO = new CreateDivisionDTO("bla", "balbla", "blabklaqsfdq");
         DivisionDTO divisionDto = divisionService.saveDivision(createDivisionDTO);
@@ -35,6 +37,7 @@ class DivisionServiceIntegrationTest {
     }
 
     @Test
+    @DirtiesContext
     void getAllDivisions() {
         // Given
         divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
@@ -45,6 +48,7 @@ class DivisionServiceIntegrationTest {
     }
 
     @Test
+    @DirtiesContext
     void createSubDivision() {
         // Given
         Division parentDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
@@ -56,6 +60,7 @@ class DivisionServiceIntegrationTest {
     }
 
     @Test
+    @DirtiesContext
     void createSubDivision_givenWrongParentId_thenThrowDivisionDoesNotExistException() {
         assertThatThrownBy(() -> divisionService.assignSubDivision(1, 2))
                 .isInstanceOf(DivisionDoesNotExistException.class)
@@ -63,6 +68,7 @@ class DivisionServiceIntegrationTest {
     }
 
     @Test
+    @DirtiesContext
     void createSubDivision_givenWrongSubId_thenThrowDivisionDoesNotExistException() {
         Division parentDivision = divisionRepository.save(new Division("bla", "balbla", "blabklaqsfdq"));
         assertThatThrownBy(() -> divisionService.assignSubDivision(parentDivision.getId(), 2))
