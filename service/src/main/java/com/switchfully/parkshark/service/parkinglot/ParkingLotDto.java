@@ -8,8 +8,6 @@ import com.switchfully.parkshark.domain.user.contactperson.Contactperson;
 
 public class ParkingLotDto {
     private long id;
-    @JsonView({Views.Manager.class, Views.showAllParkingInfo.class})
-    private int id;
     private String name;
     private Category category;
     private int capacity;
